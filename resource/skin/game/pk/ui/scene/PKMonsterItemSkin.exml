@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKMonsterItemSkin" width="100" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="barGroup" y="150" horizontalCenter="0">
+		<e:Rect width="42" height="6" x="0" y="0" fillColor="0x605d5d" strokeColor="0x000000" strokeWeight="1"/>
+		<e:Rect id="bar" width="40" height="4" x="1" y="1" fillColor="0x512020"/>
+	</e:Group>
+	<e:Image id="teamMC" source="card_battle_png" scaleX="0.5" scaleY="0.5" y="280" horizontalCenter="0"/>
+	<e:List id="list" width="30" x="70" bottom="0" itemRendererSkinName="PKMonsterStateItemSkin">
+		<e:layout>
+			<e:VerticalLayout gap="1"/>
+		</e:layout>
+	</e:List>
+</e:Skin>

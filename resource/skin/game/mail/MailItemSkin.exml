@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MailItemSkin" width="620" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" >
+	<e:Image source="bg2_png" scale9Grid="9,9,11,10" x="0" y="0" width="100%" height="100%"/>
+	<e:Group id="nameGroup" x="110" y="12">
+		<e:Image id="typeMC" source="icon_type1_png" x="81.52" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Label id="nameText" text="苦顶替" size="24" stroke="3" verticalAlign="bottom" x="0" textColor="0xFFFFFF" strokeColor="0x231507" y="2.61"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+	<ns1:HeadMC width="90" height="90" x="10" skinName="HeadMCSkin" id="headMC" verticalCenter="0"/>
+	<e:Label id="timeText" text="2011/12/1" size="24" stroke="1" verticalAlign="bottom" strokeColor="0x231507" y="14" right="10" textColor="0xdbd3c7"/>
+	<e:Label id="desText" text="100" textAlign="left" stroke="2" y="57.4" size="24" left="120" lineSpacing="5" textColor="0xfcd6a4" anchorOffsetY="0" verticalAlign="middle" anchorOffsetX="0" height="24" width="475"/>
+	<e:Image id="redMC" source="red_mc_png" right="-12" top="-4"/>
+	<e:Image id="awardMC" source="get_award_png" right="10" bottom="3" scaleX="0.8" scaleY="0.8"/>
+</e:Skin>

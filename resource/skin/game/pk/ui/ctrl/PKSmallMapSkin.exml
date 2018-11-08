@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKSmallMapSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="300" height="55">
+	<e:Group x="0" y="0" locked="true">
+		<e:Image source="bg17_png" x="0" scale9Grid="12,0,51,41" width="150" y="0" scaleX="-1" height="55"/>
+		<e:Image source="bg17_png" x="0" height="55" scale9Grid="12,0,51,41" width="150" y="0"/>
+		<e:layout>
+		<e:HorizontalLayout gap="0"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="smallMap" width="300" height="55" x="0" y="0">
+		<e:Rect width="1" height="30" x="40" verticalCenter="0" fillColor="0x3B3BAA" fillAlpha="0.8"/>
+		<e:Rect width="1" height="30" verticalCenter="0" right="40" fillColor="0x960000" fillAlpha="0.8"/>
+	</e:Group>
+</e:Skin>

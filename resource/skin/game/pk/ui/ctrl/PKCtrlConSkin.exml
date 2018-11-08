@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKCtrlConSkin" width="640" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" height="600">
+	<e:Image id="bg" source="active_bg_jpg" x="-212" y="0" fillMode="repeat" width="1920" locked="true"/>
+	<e:Image source="active_bg2_png" horizontalCenter="0" bottom="120"/>
+	<e:Image id="door" source="door_png" anchorOffsetY="76" anchorOffsetX="75" scaleY="0.6" bottom="232" scaleX="3" horizontalCenter="0"/>
+	<e:Image x="0" width="640" height="200" bottom="-10" source="bg15_png" scale9Grid="16,13,19,11"/>
+	<e:Image source="line_png" scaleX="1.3" scaleY="1.3" left="-30" right="-30" bottom="-10" scale9Grid="42,2,258,18"/>
+	<e:Image id="tipsMC" source="type_tips_png" x="534" scaleX="0.5" scaleY="0.5" bottom="200" visible="false"/>
+	<ns1:PKInfoBtn id="info1" x="10" y="-40" skinName="PKInfoBtnSkin" width="120"/>
+	<ns1:PKInfoBtn id="info2" x="518" y="-40" skinName="PKInfoBtnSkin"/>
+	<e:Group y="10" horizontalCenter="0">
+		<e:Image x="0" source="icon_clock_png" scaleX="1.4" scaleY="1.4" y="5"/>
+		<e:Label id="timeText" text="Label" x="42" y="11" size="24" stroke="2"/>
+	</e:Group>
+	<e:Group id="costGroup" x="10" y="10" width="130">
+		<e:Image source="icon_cost_bg_png" x="0" y="0" scaleX="0.4" scaleY="0.4"/>
+		<e:Image id="costMC" source="icon_cost_png" x="4" y="5"/>
+		<e:Label id="costText" text="Label" y="11" size="24" stroke="2" left="42" right="0"/>
+	</e:Group>
+
+	<e:Group id="replayGroup" width="160" height="95" anchorOffsetX="0" bottom="200" right="10" visible="false">
+		<e:Label id="playerText" text="请选择" y="0" horizontalCenter="0" size="24" textColor="0xfce6a4" stroke="2"/>
+		<e:Button id="vPlayer" label="切换视色" skinName="Btn1Skin" width="160" horizontalCenter="0" bottom="0"/>
+	</e:Group>
+	<e:Group id="speedBtn" x="10" bottom="200" visible="false">
+		<e:Image source="speed_btn_png" x="0" y="0" scaleX="0.7" scaleY="0.7"/>
+		<e:Label id="speedText" text="x1" x="52" stroke="3" verticalCenter="0"/>
+	</e:Group>
+	<e:Image id="faceBtn" source="pk_e_14_png" y="10" width="55" height="55" right="10"/>
+	<e:Group id="cardGroup" width="640" height="160" x="0" anchorOffsetX="0" bottom="15">
+    	    </e:Group>
+    	<e:Group id="placeGroup" width="640" x="2" anchorOffsetX="0" bottom="5" height="250" scrollEnabled="true">
+    		<e:layout>
+    			<e:TileLayout horizontalGap="15" verticalGap="10" paddingLeft="10" paddingTop="10"/>
+    		</e:layout>
+    	</e:Group>
+	<e:Image id="settingBtn" source="icon_setting_png" y="10" right="10"/>
+	<e:Label id="desText" text="Label" x="10" bottom="200" size="24" stroke="3"/>
+
+</e:Skin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CardItemSkin" width="150" height="200" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" states="normal,lock,add,skill" >
+	<e:Image id="bg" source="border_8_png" x="0" y="0" width="100%" height="100%" scale9Grid="12,12,76,76"/>
+	<ns1:CardImg id="img" width="130" height="150" y="10" horizontalCenter="0"/>
+	<e:Label id="nameText" text="Label" size="22" horizontalCenter="0" bottom="10" stroke="1"/>
+	<e:Image source="icon_add1_png" includeIn="add" y="122" x="11"/>
+	<e:Image id="redMC" source="red_mc_png" includeIn="add" y="-1" x="132"/>
+	<e:Image source="icon_cost_png" y="129.08" x="118.56" includeIn="normal,skill"/>
+	<e:Label id="costText" text="5" size="24" stroke="3" x="116.2" y="137" width="30" textAlign="center" includeIn="normal,skill"/>
+	<e:Image source="icon_lock_png" includeIn="lock" y="70" horizontalCenter="0" scaleX="1.2" scaleY="1.2"/>
+	<e:Group id="skillGroup" y="10" includeIn="skill" x="10">
+		<e:Image source="bg8_png" scale9Grid="9,9,9,9" x="0" y="0" width="100%"/>
+		<e:Label id="numText" text="123" size="22" y="4" left="5" right="5" textAlign="center"/>
+		<e:Image source="border2_png" scale9Grid="12,12,3,3" left="-3" right="-3" top="-3" bottom="-3"/>
+	</e:Group>
+</e:Skin>

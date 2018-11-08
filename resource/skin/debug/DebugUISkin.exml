@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="DebugUISkin" width="480" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect height="100%" width="480" x="0" y="0" fillColor="0xFFFFFF"/>
+	<e:Group x="10" y="10" width="460" height="280">
+		<e:Button id="btn0" label="按钮" x="0" y="0"/>
+		<e:Button x="10" label="按钮" y="10" id="btn1"/>
+		<e:Button id="btn2" y="20" label="按钮" x="20"/>
+		<e:Button x="30" label="按钮" y="30" id="btn3"/>
+		<e:Button id="btn4" y="40" label="按钮" x="40"/>
+		<e:Button x="50" label="按钮" y="50" id="btn5"/>
+		<e:Button id="btn6" y="60" label="按钮" x="60"/>
+		<e:Button x="70" label="按钮" y="70" id="btn7"/>
+		<e:Button id="btn8" y="80" label="按钮" x="80"/>
+		<e:Button x="90" label="按钮" y="90" id="btn9"/>
+		<e:Button id="btn10" y="100" label="按钮" x="100"/>
+		<e:Button x="110" label="按钮" y="110" id="btn11"/>
+		<e:Button id="btn12" y="120" label="按钮" x="120"/>
+		<e:Button x="130" label="按钮" y="130" id="btn13"/>
+		<e:Button id="btn14" y="140" label="按钮" x="140"/>
+		<e:Button x="150" label="按钮" y="150" id="btn15"/>
+		<e:Button id="btn16" y="160" label="按钮" x="160"/>
+		<e:Button x="170" label="按钮" y="170" id="btn17"/>
+		<e:Button id="btn18" y="180" label="按钮" x="180"/>
+		<e:Button x="190" label="按钮" y="190" id="btn19"/>
+		<e:layout>
+			<e:TileLayout/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

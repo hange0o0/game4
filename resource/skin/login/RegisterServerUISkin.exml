@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="RegisterServerUISkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="560" height="640">
+	<e:Image scale9Grid="33,31,4,6" source="bg14_png" top="20" bottom="0" anchorOffsetY="0" width="560" horizontalCenter="0"/>
+	<e:Image y="75" left="50" right="50" height="350" source="bg7_png" scale9Grid="33,28,6,11" anchorOffsetY="0"/>
+
+
+
+
+
+
+	<e:Group horizontalCenter="0" bottom="28">
+		<e:Button id="backBtn" y="0" label="返回" x="0" width="150" skinName="Btn3Skin"/>
+		<e:Button id="registerBtn" y="0" label="创建" x="176" skinName="Btn4Skin" width="150"/>
+		<e:layout>
+			<e:HorizontalLayout gap="50"/>
+		</e:layout>
+	</e:Group>
+	<e:Group horizontalCenter="0" bottom="125">
+		<e:Label text="代号：" x="79" y="458" textColor="0x1c1001" bold="true"/>
+		<e:TextInput id="nameText" width="240" y="2" skinName="MyTextInputSkin" height="50" x="0" maxChars="7" prompt="代号最长为7个中文" text="12345671234567"/>
+		<e:Group id="randomBtn" y="-4" right="-54">
+
+			<e:Image source="random_btn_png" scaleY="0.6" scaleX="0.6" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="6"/>
+		</e:layout>
+	</e:Group>
+	<e:Image source="title_bg3_png" y="-15" scale9Grid="83,15,285,45" width="520" horizontalCenter="0"/>
+	<e:Label text="创建新的角色" horizontalCenter="0" y="8" strokeColor="0x280b00" textColor="0xffffff" stroke="2" size="28"/>
+
+
+
+
+
+	<e:Group x="264.17" y="162">
+		<e:Rect id="chooseMC" width="80" height="80" x="0" y="97" ellipseWidth="80" ellipseHeight="80" fillColor="0xbf530f"/>
+		<e:Image id="arrowMC" source="arrow3_png" y="185.94" scaleY="-1" x="10.83"/>
+		<e:Image source="type_tips_png" y="0" x="9.83"/>
+		<e:Image id="type1" source="icon_type1_png" x="70.49" y="0.06"/>
+		<e:Image id="type2" x="140.16" y="104.03" source="icon_type2_png"/>
+		<e:Image id="type3" x="8.31" y="106.06" source="icon_type3_png"/>
+	</e:Group>
+	<e:Label text="使用本族单位时额外获得10%加成" y="370" size="24" stroke="1" horizontalCenter="0.5" textColor="0x7f4f18" strokeColor="0x3d1901"/>
+	<e:Label text="点击下方图标选择种族" y="109" horizontalCenter="0.5" size="26" bold="true" textColor="0x331301"/>
+	<e:Label id="desText" text="Label" y="316" horizontalCenter="-100" size="23" stroke="2"/>
+
+</e:Skin>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="ShopBuyUISkin" width="480" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" height="520" states="normal,des"  height.des="560" height.normal="500">
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+	<ns1:ShopItem id="shopItem" y="90" skinName="ShopItemSkin" horizontalCenter="0"/>
+	<e:Group y="-40" horizontalCenter="0">
+		<e:Image source="title_bg3_png" scale9Grid="83,15,285,45" width="440" x="0" y="0"/>
+		<e:Label id="titleText" text="道具购买" y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+	</e:Group>
+	<e:Group horizontalCenter="0" bottom="40">
+		<e:Button id="cancelBtn" y="4" label="取消" x="0" width="160" skinName="Btn2Skin"/>
+		<e:Button id="okBtn" label="购买" x="198" y="0" width="160" skinName="Btn1Skin"/>
+		<e:layout>
+			<e:HorizontalLayout gap="30"/>
+		</e:layout>
+	</e:Group>
+	<e:Image source="bg11_png" scale9Grid="15,14,7,10" includeIn="des" anchorOffsetX="0" width="400" anchorOffsetY="0" height="80" horizontalCenter="0" bottom="120"/>
+	<e:Label id="desText" text="这个升级 石会在第XXX关掉落，是否花费XXX钻三种提前获得？" includeIn="des" size="24" textColor="0xfce2a9" width="360" horizontalCenter="0" lineSpacing="10" height="60" verticalAlign="middle" bottom="130"/>
+
+</e:Skin>

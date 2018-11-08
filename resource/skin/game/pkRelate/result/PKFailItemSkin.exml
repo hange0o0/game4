@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKFailItemSkin" width="420" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="start2_png" x="0" y="11"/>
+	<e:Label id="desText" text="Label" size="24" textColor="0xcccccc" bottom="13" top="13" left="35" right="20"/>
+	<e:Button id="btn" label="前往" skinName="Btn3Skin" scaleX="0.75" scaleY="0.75" right="0" y="3"/>
+</e:Skin>

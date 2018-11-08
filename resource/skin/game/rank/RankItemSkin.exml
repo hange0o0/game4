@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RankItemSkin" width="620" height="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" states="self,normal,text" >
+	<e:Image source="black_bg_png" includeIn="text" left="50" right="50" top="10" bottom="10" scale9Grid="40,18,10,12"/>
+	<e:Label id="des" text="Label" includeIn="text" horizontalCenter="0" verticalCenter="0" size="26" textColor="0xfcd48d" lineSpacing="10"/>
+	<e:Image source="bg2_png" scale9Grid="9,9,11,10" x="0" y="0" width="100%" height="100%" source.normal="bg11_png" includeIn="self,normal"/>
+	<e:Group x="160" verticalCenter="0" includeIn="self,normal">
+		<e:Image id="typeMC" source="icon_type1_png" x="0" y="0" scaleX="0.6" scaleY="0.6"/>
+		<e:Label id="nameText" text="苦顶替" size="26" stroke="3" verticalAlign="bottom" x="167.48" textColor="0xFFFFFF" strokeColor="0x231507" includeIn="self,normal" y="30.61"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+	<e:Label id="rankText" text="100" x="11" width="60" textAlign="center" y="25" stroke="2" includeIn="self,normal"/>
+	<ns1:HeadMC width="60" height="60" x="90" skinName="HeadMCSkin" id="headMC" verticalCenter="0" includeIn="self,normal"/>
+	<e:Label id="scoreText" text="100" width="220" textAlign="center" stroke="2" verticalCenter="0" right="0" includeIn="self,normal" size="26"/>
+	<e:Rect width="2" x="79" fillColor="0x84551b" top="10" bottom="10" includeIn="self,normal"/>
+	<e:Image id="indexMC" source="1th_png" x="10.52" y="0" includeIn="self,normal"/>
+</e:Skin>

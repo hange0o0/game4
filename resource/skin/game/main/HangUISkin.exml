@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="HangUISkin" width="580" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="500">
+	<w:Config id="166189c8eba"/>
+	<e:Image top="0" bottom="0" source="bg15_png" scale9Grid="20,20,9,10" left="0" right="0"/>
+	<e:Group id="con" top="3" bottom="5" left="5" right="5">
+
+	</e:Group>
+	<e:Image source="bg18_png" left="0" right="0" top="0" bottom="0" scale9Grid="30,32,6,6"/>
+
+</e:Skin>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="BookBGSkin" width="640" xmlns:e="http://ns.egret.com/eui" height="100">
+	<e:Group top="0" bottom="0" left="0" right="0">
+		<e:Image source="book_bg1_jpg" x="0" top="0" height="50%" scale9Grid="40,19,240,324"/>
+		<e:Image source="book_bg1_jpg" y="0" scaleX="-1" height="50%" scale9Grid="40,24,240,319" right="0"/>
+		<e:Image source="book_bg2_jpg" x="0" height="50%" bottom="0" scale9Grid="40,12,240,323"/>
+		<e:Image source="book_bg2_jpg" scaleX="-1" height="50%" bottom="0" scale9Grid="40,10,240,318" right="0"/>
+	</e:Group>
+</e:Skin>

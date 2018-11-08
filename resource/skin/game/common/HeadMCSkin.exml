@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="HeadMCSkin" width="100" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="bg" width="100%" height="100%" x="0" y="0" source="bg5_png" scale9Grid="9,9,12,11"/>
+	<e:Rect id="rect" width="100%" height="100%" x="0" y="0" ellipseWidth="15"/>
+	<e:Image id="mc" source="bg5_png" left="5" right="5" top="5" bottom="5"/>
+</e:Skin>

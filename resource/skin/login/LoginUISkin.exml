@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="LoginUISkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+
+	
+	
+	
+	<e:Group width="480" height="260" horizontalCenter="0" verticalCenter="0">
+		<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+		<e:Group id="logGroup" width="440" y="30" horizontalCenter="0">
+			<e:Label text="用户名：" y="13.04" x="18.18" textColor="0x211402" size="24" bold="true"/>
+			<e:Label y="81.56" text="密码：" x="30" textColor="0x211402" size="24" bold="true"/>
+			<e:TextInput id="nameText" x="123" y="0" skinName="MyTextInputSkin" height="50"/>
+			<e:TextInput id="passwordText" skinName="MyTextInputSkin" y="67" height="50" x="123"/>
+			<e:Group y="140.94" horizontalCenter="0" id="btnGroup">
+				<e:Button id="registerBtn" y="0" label="注册" x="0" skinName="Btn4Skin" width="140"/>
+				<e:Button id="loginBtn" label="登陆" x="137" y="4" skinName="Btn4Skin" width="140"/>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" gap="40"/>
+				</e:layout>
+			</e:Group>
+		</e:Group>
+	</e:Group>
+</e:Skin>

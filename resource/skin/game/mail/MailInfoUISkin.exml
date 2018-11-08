@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="MailInfoUISkin" width="560" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" minHeight="520" maxHeight="860" states="normal,award"  minHeight.normal="520">
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+
+	<e:Group  id="btnGroup" horizontalCenter="0" bottom="20">
+		<e:Button id="cancelBtn" label="关闭" width="150" x="0" y="0" skinName="Btn2Skin"/>
+		<e:Button id="okBtn" label="领取" width="150" skinName="Btn1Skin" x="0" y="0"/>
+		<e:layout>
+			<e:HorizontalLayout gap="30"/>
+		</e:layout>
+	</e:Group>
+	<e:Scroller id="scroller" width="500" horizontalCenter="0" top="260" bottom="100" minHeight="200" maxHeight="500" bounces="false" includeIn="award">
+		<e:Group>
+			<e:List id="list" width="500" minHeight="200" itemRendererSkinName="AwardItemSkin" x="0">
+				<e:layout>
+				<e:VerticalLayout verticalAlign="middle" gap="8"/>
+				</e:layout>
+			</e:List>
+		</e:Group>
+	</e:Scroller>
+	<e:Group y="-40" horizontalCenter="0">
+		<e:Image source="title_bg3_png" scale9Grid="83,15,285,45" width="520" x="0" y="0" width.normal="500"/>
+		<e:Label id="titleText" text="afasd " y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+	</e:Group>
+	<e:Group y="90" left="30" right="30">
+		<e:Image source="bg3_png" scale9Grid="16,15,7,7" height="160" y="0" x="0" width="100%" height.normal="300"/>
+		<e:Label id="desText" text="Label" size="24" stroke="2" verticalAlign="top" lineSpacing="10" textAlign="left" left="15" right="15" top="15" bottom="45" verticalAlign.award="middle"/>
+		<e:Label id="timeText" text="2011/12/1" size="24" stroke="1" verticalAlign="bottom" strokeColor="0x231507" right="10" textColor="0xDBD3C7" bottom="10"/>
+	</e:Group>
+</e:Skin>

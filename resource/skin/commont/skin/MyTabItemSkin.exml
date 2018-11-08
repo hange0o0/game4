@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="MyTabItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"  states="up,upAndSelected"  height="53">
+	<e:Image source="tab2_png" scale9Grid="20,18,10,21" left="0" right="0" source.up="tab1_png" top="0" bottom="0" top.up="5" bottom.up="0"/>
+
+
+
+
+
+	<e:Label id="label" text="{data.label}" size="22" verticalAlign="middle" touchEnabled="false" textAlign="center"  verticalCenter="3.5" stroke.upAndSelected="2" left="15" right="15" stroke="2" textColor="0xf6c922" textColor.upAndSelected="0xf6c922" textColor.up="0xedd580" left.up="15" right.up="15" verticalCenter.up="6.5"/>
+	<e:Image id="redMC" source="red_mc_png" top="0" right="-5" visible="false"/>
+</e:Skin>

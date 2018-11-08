@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKInfoBtnSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group x="0" y="0">
+		<e:Group x="0" y="0" width="38" height="38">
+			<e:Image id="selfIcon" source="border_9_png" verticalCenter="0" horizontalCenter="0" width="52" height="52"/>
+			<e:Image id="type" source="icon_type1_png" scaleX="0.6" scaleY="0.6" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Label id="info" text="Label" x="45" y="0" stroke="3" size="26" height="30" verticalAlign="bottom"/>
+		<e:layout>
+		<e:HorizontalLayout verticalAlign="middle" gap="10"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainUISkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Image x="0" width="100%" source="bg14_png" scale9Grid="31,32,9,6" top="-20" bottom="-20"/>
+	<e:Image source="bg_icon_png" fillMode="repeat" scaleX="1.2" scaleY="1.2" left="5" right="5" top="0" bottom="0" alpha="0.5"/>
+	<e:Group id="topGroup" x="20" y="20">
+		<e:Group id="coinGroup" x="0" y="0">
+			<e:Image source="border1_png" scale9Grid="28,20,26,2" x="0" y="0" width="220"/>
+			<e:Image id="addCoinBtn" source="icon_add2_png" y="0" right="0"/>
+			<e:Label id="coinText" text="12345678" x="50" size="24" y="9" verticalCenter="-5"/>
+			<e:Image x="2.02" source="icon_coin_png" y="-1.33"/>
+		</e:Group>
+		<e:Group id="diamondGroup" x="460" y="0">
+			<e:Image source="border1_png" scale9Grid="28,20,26,2" x="0" y="0" width="160"/>
+			<e:Label id="diamondText" text="12345" x="50" size="24" y="9"/>
+			<e:Image id="addDiamondBtn" source="icon_add2_png" y="0" right="0"/>
+			<e:Image x="-10" y="-1.5" source="icon_diamond_png"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="20"/>
+		</e:layout>
+	</e:Group>
+	<e:Group x="30" height="700" verticalCenter="30">
+		<e:Group id="forceGroup" y="-80" horizontalCenter="-10">
+			<e:Image id="scoreIcon" x="12" y="0" source="pvp_icon_1_png" width="60" height="60"/>
+			<e:Label id="scoreText" text="12345" x="70" size="42" textColor="0xfcc541" stroke="3" strokeColor="0x662a0e" italic="true" verticalCenter="0"/>
+		</e:Group>
+		<ns1:HangUI id="map" y="0" skinName="HangUISkin" x="0"/>
+		<e:Button id="pkBtn" label="开始战斗" y="540" skinName="Btn5Skin" x="194"/>
+		<e:Group id="pairGroup" y="527.72" x="188" visible="false">
+			<e:Button id="cancelBtn" label="取消" y="90" horizontalCenter="0" skinName="Btn7Skin" width="180" height="80"/>
+			<e:Label id="cdText" text="Label" y="60" size="24" stroke="3" horizontalCenter="0"/>
+			<e:Label text="正在匹配中" y="0" size="40" bold="true" stroke="3" textColor="0xFFDBA5" x="0"/>
+		</e:Group>
+	</e:Group>
+	<e:Image source="title_bg4_png" x="0" width="100%" bottom="-20" fillMode="repeat"/>
+
+	<e:Group id="bottomGroup" height="75" bottom="20" horizontalCenter="0">
+					<e:Group id="shopBtn" x="100" y="0" height="80" width="80">
+						<e:Image source="main_shop_png" verticalCenter="0" horizontalCenter="0"/>
+						<e:Image id="shopRedMC" source="red_mc_png" right="0" top="12"/>
+						<e:Label text="商城" size="22" horizontalCenter="0" stroke="2" bottom="10"/>
+					</e:Group>
+					<e:Group id="rankBtn" x="100" y="0" height="80" width="80">
+					<e:Image source="main_rank_png" horizontalCenter="0" verticalCenter="0"/>
+					<e:Label text="排行" size="22" horizontalCenter="0" stroke="2" bottom="10"/>
+					</e:Group>
+		<e:Group id="tecBtn" x="110" y="10" height="80" width="80">
+			<e:Image horizontalCenter="0" y="-10" source="main_pk_png"/>
+			<e:Label text="战力" size="22" horizontalCenter="0" stroke="2" bottom="0"/>
+		</e:Group>
+					<e:Group id="mailBtn" x="10" y="0" width="80" height="80">
+						<e:Image source="main_mail_png" verticalCenter="0" horizontalCenter="0"/>
+						<e:Label text="消息" size="22" horizontalCenter="0" stroke="2" bottom="10"/>
+						<e:Image id="mailRed" source="red_mc_png" right="0" top="12"/>
+					</e:Group>
+					<e:Group id="settingBtn" x="100" y="0" width="80" height="80">
+					<e:Image source="icon_setting_png" horizontalCenter="0" verticalCenter="0"/>
+					<e:Label text="设置" size="22" horizontalCenter="0" stroke="2" bottom="10"/>
+					</e:Group>
+					<e:layout>
+					<e:HorizontalLayout horizontalAlign="right" paddingLeft="0" paddingRight="0" gap="45"/>
+					</e:layout>
+				</e:Group>
+
+	
+</e:Skin>

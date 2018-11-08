@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ShopUISkin" width="640" height="960" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" width="100%" height="100%" source="bg14_png" scale9Grid="31,30,5,9"/>
+	<e:Image source="bg_icon_png" fillMode="repeat" alpha="0.5" scaleX="1.2" scaleY="1.2" left="5" right="5" top="0" bottom="0"/>
+	<ns1:TopUI id="topUI" width="100%" x="0" y="0" skinName="TopUISkin"/>
+	<e:Scroller id="scroller" width="640" x="0" top="60" bottom="100" bounces="false">
+		<e:Group>
+			<ns1:ResourceBar id="resourceBar" x="24" y="28" skinName="ResourceBarSkin" height="40"/>
+			<e:Group horizontalCenter="0" y="20" height="110">
+				<e:Group y="80" horizontalCenter="0.5">
+					<e:Image source="black_bg_png" y="0" height="40" scale9Grid="42,7,8,42" left="0" right="0"/>
+					<e:Group left="50" right="50" verticalCenter="0">
+					<e:Label text="商品重置时间:" size="24" stroke="2" textAlign="center" y="26" x="55"/>
+					<e:Image source="icon_clock_png" x="0" y="0"/>
+					<e:Label id="cdText" text="Label" size="24" stroke="2" textAlign="center" y="16" x="45" textColor="0xffe79b"/>
+					<e:layout>
+						<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center" gap="10"/>
+					</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Image source="title_bg3_png" scale9Grid="83,15,285,45" width="520" x="0" y="0"/>
+				<e:Label text="每日商店 " y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+			</e:Group>
+			<e:List id="list" x="0" y="0">
+				<e:layout>
+				<e:TileLayout requestedColumnCount="3" verticalGap="20" paddingLeft="0" paddingTop="0" paddingBottom="0" horizontalGap="50"/>
+				</e:layout>
+			</e:List>
+			<e:Group id="diamondTitle" horizontalCenter="0" y="20" height="95">
+				<e:Image source="title_bg3_png" scale9Grid="83,15,285,45" width="520" x="0" y="0"/>
+				<e:Label text="购买钻石 " y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+			</e:Group>
+			<e:List id="diamondList" x="10" y="10">
+				<e:layout>
+					<e:VerticalLayout paddingBottom="20" gap="10"/>
+				</e:layout>
+			</e:List>
+			<e:layout>
+				<e:VerticalLayout horizontalAlign="center" paddingTop="10" gap="30"/>
+			</e:layout>
+		</e:Group>
+	</e:Scroller>
+	<ns1:BottomUI id="bottomUI" x="0" skinName="BottomUISkin" bottom="0"/>
+
+</e:Skin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKTopItemSkin" width="80" height="90" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" states="normal,empty,hero" >
+	<e:Image id="heroBG" source="hero_bg1_png" x="0" y="0" width="80" height="80" includeIn="hero"/>
+	<e:Image id="heroMC" width="64" height="64" y="8" horizontalCenter="0" includeIn="hero"/>
+	<e:Group horizontalCenter="0" bottom="0" includeIn="hero" scaleX="0.7" scaleY="0.7">
+		<e:Image source="start1_png" x="20" y="20" id="s0"/>
+		<e:Image source="start1_png" x="30" y="30" id="s1"/>
+		<e:Image source="start1_png" x="40" y="40" id="s2"/>
+		<e:Image id="s3" source="start1_png" x="0" y="0"/>
+		<e:Image id="s4" source="start1_png" x="10" y="10"/>
+		<e:layout>
+		<e:HorizontalLayout gap="-5"/>
+		</e:layout>
+	</e:Group>
+	<e:Image source="bg9_png" scale9Grid="12,12,4,5" left="0" right="0" top="0" bottom="0" includeIn="empty"/>
+	<e:Group id="group" x="0" y="0" width="100%" height="100%" includeIn="normal">
+		<e:Image id="bg" source="border_8_png" x="0" y="0" width="100%" height="100%"/>
+		<ns1:CardImg id="img" width="70" height="80" y="5" horizontalCenter="0"/>
+		<e:Group includeIn="normal" right="0" bottom="0">
+			<e:Image source="bg8_png" scale9Grid="9,9,9,9" x="0" y="0" width="30" height="20"/>
+			<e:Label id="indexText" text="12" size="18" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

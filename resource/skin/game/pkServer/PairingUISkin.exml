@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PairingUISkin" width="640" height="960" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Image x="0" y="0" width="100%" height="100%" source="bg14_png" scale9Grid="31,32,9,6"/>
+	<e:Image source="bg_icon_png" fillMode="repeat" scaleX="1.2" scaleY="1.2" left="5" right="5" top="0" bottom="0" alpha="0.5"/>
+	<e:Image source="title_bg4_png" x="0" fillMode="repeat" width="100%" bottom="-24"/>
+	<ns1:TopUI id="topUI" width="100%" x="0" y="0" skinName="TopUISkin"/>
+	<e:Group id="con" width="400" height="500" horizontalCenter="0" verticalCenter="0">
+		<e:Label id="cdText" text="Label" y="0" size="24" stroke="3" horizontalCenter="0"/>
+		<e:Label text="正在匹配中" y="-62" size="40" bold="true" stroke="3" textColor="0xffdba5" horizontalCenter="0"/>
+		<e:Button id="cancelBtn" label="取消" skinName="Btn5Skin" horizontalCenter="0" bottom="0"/>
+	</e:Group>
+</e:Skin>

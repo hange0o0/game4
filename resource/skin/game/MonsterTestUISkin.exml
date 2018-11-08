@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MonsterTestUISkin" width="640" height="960" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label id="standBtn" text="stand" x="150" y="608"/>
+	<e:Label id="dieBtn" text="die" x="414" y="721"/>
+	<e:Label id="loadBtn" text="load" x="224" y="848"/>
+	<e:Label id="loadBtn2" text="loadHD" x="320" y="852"/>
+	<e:Label id="runBtn" text="run" x="150" y="721"/>
+	<e:Label id="atkBtn" text="atk" x="414" y="613"/>
+	<e:EditableText id="inputText" width="100" height="38" text="Label" x="92.5" y="848" anchorOffsetX="0" anchorOffsetY="0" border="true"/>
+</e:Skin>

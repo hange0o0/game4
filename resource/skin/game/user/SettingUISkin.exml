@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="SettingUISkin" width="560" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" height="620">
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+	<e:Group y="75" horizontalCenter="0">
+		<ns1:HeadMC x="0" skinName="HeadMCSkin" id="headMC" y="0"/>
+		<e:Label text="更换" x="-1.12" y="-3.76" size="22" textColor="0xffe399" stroke="3" touchEnabled="false" width="100" textAlign="center"/>
+		<e:Group x="110" y="10">
+			<e:Image id="typeMC" source="icon_type1_png" x="14" y="358.03" scaleX="0.6" scaleY="0.6"/>
+			<e:Label id="nameText" text="更换头像需花费：" y="0" x="0" size="30" stroke="2" strokeColor="0x331c03"/>
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Label id="idText" text="更换头像需花费：" x="110" size="24" y="60" textColor="0xffde96"/>
+	</e:Group>
+	<e:Image source="bg3_png" scale9Grid="16,15,7,7" left="30" right="30" top="200" bottom="120"/>
+
+	<e:Group  id="btnGroup" horizontalCenter="0" bottom="30">
+		<e:Button id="cancelBtn" label="关闭" width="150" x="0" y="0" skinName="Btn2Skin"/>
+		<e:Button id="loginBtn" label="退出登录" width="150" skinName="Btn1Skin" x="0" y="0"/>
+		<e:layout>
+			<e:HorizontalLayout gap="50"/>
+		</e:layout>
+	</e:Group>
+	<e:Group horizontalCenter="0" y="-40" locked="true">
+		<e:Image source="title_bg3_png" scale9Grid="83,15,285,45" width="520" x="0" y="0"/>
+		<e:Label text="设置" y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+	</e:Group>
+	<e:Group y="230" horizontalCenter="0">
+		<e:CheckBox id="effectCB" label="音效" x="10" y="10" skinName="MyCheckBoxSkin" width="200"/>
+		<e:CheckBox id="musicCB" label="背景音乐" x="0" y="0" skinName="MyCheckBoxSkin" width="200"/>
+		<e:CheckBox id="modeCB" label="兼容模式" x="0" y="0" skinName="MyCheckBoxSkin" width="200"/>
+		<e:layout>
+			<e:TileLayout requestedColumnCount="2" horizontalGap="30" verticalGap="20"/>
+		</e:layout>
+	</e:Group>
+	<e:Group x="63" y="380">
+		<e:Group x="0" y="0">
+			<e:Label y="4" textColor="0xEFE5AD" size="24" text="游戏官方QQ群：" x="0"/>
+			<e:Label id="qqText" y="0" textColor="0xEDCB24" size="24" text="347331204" x="192"/>
+			<e:layout>
+			<e:HorizontalLayout/>
+			</e:layout>
+		</e:Group>
+		<e:Group y="136" x="0">
+        			<e:Label y="2" textColor="0xEFE5AD" size="24" text="游戏版本：" x="0"/>
+        			<e:Label id="versionText" y="0" textColor="0xEDCB24" text="V1.1" size="24" x="98"/>
+        			<e:Label id="logBtn" y="10" text="[更新日志]" size="24" x="108" textColor="0xEFE5AD" width="130" textAlign="right"/>
+        			<e:layout>
+        			<e:HorizontalLayout/>
+        			</e:layout>
+        		</e:Group>
+		<e:layout>
+			<e:VerticalLayout gap="20"/>
+		</e:layout>
+	</e:Group>
+	<e:Rect height="2" y="350" left="40" right="40" fillColor="0x82571c"/>
+</e:Skin>

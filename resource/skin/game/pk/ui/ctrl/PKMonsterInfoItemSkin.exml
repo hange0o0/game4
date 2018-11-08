@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKMonsterInfoItemSkin" currentState="s1" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" width="280" states="s1,s2"  height="52">
+	<e:Group x="0" verticalCenter="0" scaleX.s2="-1" right.s2="0">
+		<e:Rect id="bar1" width="20" height="25" x="0" y="0" fillColor="0x5E2C00"/>
+		<e:Rect id="bar2" width="150" height="25" x="0" y="0" fillColor="0x6912b5"/>
+		<e:Group x="40" y="0">
+			<e:Label id="text" text="12+11" x.s1="10" size="24" stroke="3" verticalAlign="bottom" y="0" scaleX.s2="-1" left.s2="10" left="10" right="10"/>
+		</e:Group>
+		<e:Image id="teamMC" source="card_battle_png" x="104" y="14" source.s2="card_battle2_png"/>
+		<e:layout>
+		<e:HorizontalLayout gap="0" verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

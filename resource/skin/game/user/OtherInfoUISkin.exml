@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="OtherInfoUISkin" width="560" height="800" currentState="other" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" states="other,self" >
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+	<e:Scroller id="scroller" width="100%" top="2" bottom="100" bounces="false" horizontalCenter="0" bottom.self="2">
+		<e:Group id="con">
+			<e:Group id="cdGroup" x="199" y="60">
+				<e:Label id="proTitleText" text="剩余保护时间:" size="24" stroke="2" textAlign="center" y="-24" x="55"/>
+				<e:Image source="icon_def1_png" x="2" y="6" scaleX="0.35" scaleY="0.35"/>
+				<e:Label id="cdText" text="Label" size="24" stroke="2" textAlign="center" y="-24" x="45"/>
+				<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+				</e:layout>
+			</e:Group>
+			<e:Group y="50" width="480" horizontalCenter="0" x="80" scaleX="1" scaleY="1">
+				<e:Image scale9Grid="11,13,5,5" top="0" bottom="0" left="0" right="0" source="bg1_png"/>
+				<e:Group id="slaveIcon" width="40" height="40" right="5" top="5">
+					<e:Rect id="slaveBG" fillColor="0xFF0000" strokeColor="0x000000" strokeWeight="3" left="0" right="0" top="0" bottom="0" ellipseWidth="10"/>
+					<e:Label id="slaveText" text="主" size="24" right="5" left="5" top="5" bottom="5" textAlign="center" verticalAlign="middle" bold="true"/>
+				</e:Group>
+				<e:Group left="20" right="20" top="20">
+				<ns1:HeadMC width="130" height="130" x="10" skinName="HeadMCSkin" id="headMC" verticalCenter="0"/>
+				<e:Group y="10" x="120">
+					<e:Group x="0" y="0">
+					<e:Image id="typeMC" source="icon_type1_png" x="0" y="42.03" scaleX="0.6" scaleY="0.6"/>
+					<e:Label id="nameText" text="Label" x="0" y="0" size="30" stroke="1" height="32" verticalAlign="middle"/>
+					<e:layout>
+						<e:HorizontalLayout verticalAlign="middle"/>
+					</e:layout>
+					</e:Group>
+					<e:Group x="180" height="32" y="0">
+					<e:Image source="icon_coin_png" x="0" y="2" scaleX="0.6" scaleY="0.6"/>
+					<e:Label id="coinText" text="时产：123.5k" size="26" stroke="3" verticalAlign="bottom" x="35" strokeColor="0x231507" textColor="0xFCDB79" verticalCenter="0"/>
+					</e:Group>
+					<e:Group x="0" y="0">
+					<e:Image x="5" y="0" source="icon_atk_png" scaleX="1.2" scaleY="1.2"/>
+					<e:Label id="forceText" text="战力：1234" size="26" stroke="3" verticalAlign="bottom" x="35" strokeColor="0x231507" textColor="0xFCDB79" verticalCenter="0"/>
+					</e:Group>
+					<e:layout>
+					<e:VerticalLayout gap="10"/>
+					</e:layout>
+				</e:Group>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="top" horizontalAlign="left" gap="20"/>
+				</e:layout>
+				</e:Group>
+				<e:List id="infoList" width="440" horizontalCenter="0" top="170" bottom="20" itemRendererSkinName="InfoItem2Skin">
+					<e:layout>
+						<e:TileLayout horizontalGap="10" verticalGap="10" requestedColumnCount="2"/>
+					</e:layout>
+				</e:List>
+			</e:Group>
+			<e:Group x="180" y="264" width="500">
+				<e:Image source="bg13_png" scale9Grid="19,19,9,10" y="0" width="200" horizontalCenter="0"/>
+				<e:Label text="最近使用卡牌" size="22" horizontalCenter="0" y="14"/>
+				<e:List id="cardList" horizontalCenter="0" bottom="10" top="60">
+					<e:layout>
+					<e:TileLayout horizontalGap="8" verticalGap="8" requestedColumnCount="7"/>
+					</e:layout>
+				</e:List>
+				<e:Group id="copyBtn" y="0" width="60" height="60" right="0">
+					<e:Image source="copy_btn_png" scaleX="1.2" scaleY="1.2" y="7" right="0"/>
+				</e:Group>
+			</e:Group>
+			<e:Group id="slaveGroup" x="190" y="274">
+				<e:Image source="bg13_png" scale9Grid="19,19,9,10" y="0" width="200" horizontalCenter="0"/>
+				<e:Label text="社会关系" size="22" horizontalCenter="0" y="14"/>
+				<e:List id="list" horizontalCenter="0" width="500" y="60">
+					<e:layout>
+					<e:VerticalLayout/>
+					</e:layout>
+				</e:List>
+				<e:Rect width="100%" height="1" fillColor="0x563413" y="-25" scaleX="1" scaleY="1" horizontalCenter="0"/>
+			</e:Group>
+			<e:layout>
+				<e:VerticalLayout paddingBottom="10" paddingTop="30" gap="30" horizontalAlign="center"/>
+			</e:layout>
+		</e:Group>
+	</e:Scroller>
+	<e:Group id="btnGroup" horizontalCenter="0" bottom="20" includeIn="other">
+		<e:Button id="viewBtn" label="收服奴隶" skinName="Btn1Skin" x="0" y="0" width="160"/>
+		<e:Button id="okBtn" label="收服奴隶" skinName="Btn1Skin" x="100" y="0" width="160"/>
+		<e:layout>
+			<e:HorizontalLayout gap="30"/>
+		</e:layout>
+	</e:Group>
+	<e:Image source="close_btn2_png" horizontalCenter="0" bottom="-40" touchEnabled="false"/>
+	<e:Image source="line2_png" bottom="97" left="10" right="10" fillMode="repeat" includeIn="other"/>
+	<e:Group id="copyGroup" y="114" right="30">
+		<e:Image source="border_4_png" x="0" y="0" width="220" scale9Grid="23,21,5,6" height="180"/>
+		<e:Group y="55" horizontalCenter="0">
+			<ns1:OtherInfoChooseItem id="t0" x="0" y="0" skinName="BasePosTabSkin"/>
+			<ns1:OtherInfoChooseItem id="t1" x="60" y="0" skinName="BasePosTabSkin"/>
+			<ns1:OtherInfoChooseItem id="t2" x="120" y="0" skinName="BasePosTabSkin"/>
+			<ns1:OtherInfoChooseItem id="t3" x="30" y="60" skinName="BasePosTabSkin"/>
+			<ns1:OtherInfoChooseItem id="t4" x="90" y="60" skinName="BasePosTabSkin"/>
+		</e:Group>
+		<e:Label text="复制到出战卡组" y="18" horizontalCenter="0" size="24"/>
+	</e:Group>
+
+</e:Skin>

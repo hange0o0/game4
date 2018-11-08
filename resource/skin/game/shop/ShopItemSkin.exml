@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ShopItemSkin" width="150" height="252" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*"   states="prop,card" >
+	<e:Image id="bg" source="border_8_png" x="0" y="0" width="100%" height="200" scale9Grid="12,12,76,76" source.card="border_14_png"/>
+	<e:Image y="10" width="130" height="130" horizontalCenter="0" includeIn="prop" source="prop_bg_jpg"/>
+	<e:Image id="img" width="90" height="90" y="30.15" horizontalCenter="0" includeIn="prop"/>
+	<e:Label id="nameText" text="Label" size="22" horizontalCenter="0" stroke="1" lineSpacing="5" textAlign="center" y="145" horizontalCenter.card="0" y.card="168"/>
+	<e:Image source="border1_png" scale9Grid="28,20,26,2" bottom="-4" left="-3" right="-4"/>
+	<e:Group id="diamondGroup" y="213" x="14.92">
+		<e:Image id="diamondIcon" x="15" y="0" scaleX="0.5" scaleY="0.5" source="icon_diamond_png"/>
+		<e:Label id="diamondText" text="Label" size="22" stroke="1" y="4.09" borderColor="0x32d1fc" textColor="0x87e7ff" x="0" height="25" verticalAlign="bottom"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+	<e:Label id="sellFinish" text="已售磬" y="215" horizontalCenter="0.5" size="23" textColor="0x999999"/>
+	<ns1:CardImg id="cardMC" width="130" height="150" y="10" horizontalCenter="0" includeIn="card"/>
+</e:Skin>

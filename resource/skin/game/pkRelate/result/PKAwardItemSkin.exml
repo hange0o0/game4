@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKAwardItemSkin" width="500" height="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="s1,s2,s3" >
+	<e:Group id="group" width="500" height="70" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="border2_png" scale9Grid="12,12,3,3" x="10" width="60" height="60" y="5" includeIn="s1,s3" source.s3="hero_bg1_png"/>
+		<e:Image id="img" x="17" y="12" width="46" height="46" source="{data.img}" includeIn="s1,s3"/>
+		<e:Label id="nameText" text="{data.name}" x="80" stroke="2" y="20" x.s2="10"/>
+		<e:Label id="numText" text="{data.num}" stroke="2" y="20" right="10"/>
+		<e:Rect width="100%" height="1" x="0" y="69" fillColor="0x4f4f4f"/>
+	</e:Group>
+</e:Skin>

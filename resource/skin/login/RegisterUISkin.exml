@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="RegisterUISkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="normal"  width="480" height="300">
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+
+
+
+
+
+
+
+
+	<e:Group y="33" horizontalCenter="0">
+		<e:Label y="12" text="用户账号：" x="0" size="24" textColor="0x211402" bold="true" width="123"/>
+		<e:TextInput x="132" skinName="MyTextInputSkin" y="0" height="45" id="nameText" width="280" prompt="建议使用邮箱作为账号"/>
+		<e:Label y="69" size="24" text="密　　码：" x="0" textColor="0x211402" bold="true"/>
+		<e:TextInput id="passwordText1" skinName="MyTextInputSkin" y="58" width="280" height="45" x="132" prompt="密码长度最小为6" displayAsPassword="true"/>
+		<e:Label y="125" size="24" text="密码确认：" x="0" textColor="0x211402" bold="true"/>
+		<e:TextInput id="passwordText2" width="280" y="114" skinName="MyTextInputSkin" height="45" x="132" prompt="重复一次上方密码" displayAsPassword="true"/>
+	</e:Group>
+	<e:Group y="219" horizontalCenter="0">
+		<e:Button id="backBtn" label="返回" y="0" x="0" width="140" skinName="Btn3Skin"/>
+		<e:Button id="loginBtn" label="注册" y="0" x="0" skinName="Btn4Skin" width="140"/>
+		<e:layout>
+			<e:HorizontalLayout gap="40"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

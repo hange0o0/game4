@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="InfoItemSkin" width="500" height="120"  xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*"  states="master,slave" >
+	<e:Image source="bg2_png" scale9Grid="11,8,9,13"  left="0" right="0" top="0" bottom="0" includeIn="master,slave" source.master="bg11_png"/>
+	<ns1:HeadMC width="100" height="100" skinName="HeadMCSkin" id="headMC" includeIn="master,slave" y="10" x="10"/>
+	<e:Group width="40" height="40" includeIn="master,slave" right="5" top="5">
+		<e:Rect fillColor="0xff0000" strokeColor="0x000000" strokeWeight="3" left="0" right="0" top="0" bottom="0" ellipseWidth="10" fillColor.slave="0x0000ff"/>
+		<e:Label text="主" size="22" right="5" left="5" top="5" bottom="5" text.slave="奴" textAlign="center" verticalAlign="middle" bold="true"/>
+	</e:Group>
+	<e:Group y="15" includeIn="master,slave" x="125">
+		<e:Image id="typeMC" source="icon_type1_png" x="0" y="42.03" scaleX="0.5" scaleY="0.5"/>
+		<e:Label id="nameText" text="Label" y="156.74" size="28" stroke="1" width="100%" textAlign="center" x="10.63"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="15"/>
+		</e:layout>
+	</e:Group>
+
+	<e:Group includeIn="master,slave" x="125" y="68">
+		<e:Group x="180" height="32" y="0">
+			<e:Image source="icon_coin_png" x="0" y="2" scaleX="0.6" scaleY="0.6"/>
+			<e:Label id="coinText" text="时产：123.5k" size="22" stroke="3" verticalAlign="bottom" x="35" strokeColor="0x231507" textColor="0xFCDB79" verticalCenter="0"/>
+		</e:Group>
+		<e:Group x="0" y="0">
+			<e:Image source="icon_force_png" x="2.66" y="0" scaleX="0.5" scaleY="0.5"/>
+			<e:Label id="forceText" text="战力：1234" size="22" stroke="3" verticalAlign="bottom" x="35" strokeColor="0x231507" textColor="0xFCDB79" verticalCenter="0"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="20"/>
+		</e:layout>
+	</e:Group>
+
+</e:Skin>

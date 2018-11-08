@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKTotemSkin" height="80" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="30">
+	<e:Image source="totem_png" y="22" x="3"/>
+	<e:Image id="topMC" source="totem_1_png" bottom="58" horizontalCenter="0"/>
+</e:Skin>

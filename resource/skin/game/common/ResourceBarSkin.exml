@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ResourceBarSkin" width="640" height="-169" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="topCon" y="0" horizontalCenter="0">
+		<e:Group x="0" y="0">
+		<e:Image source="border1_png" scale9Grid="28,20,26,2" x="0" y="0" width="250"/>
+		<e:Image id="addCoinBtn" source="icon_add2_png" y="0" right="0"/>
+		<e:Label id="coinText" text="1234567890" x="50" size="24" y="9" verticalCenter="-3"/>
+		<e:Image x="2.02" source="icon_coin_png" y="-1.33"/>
+		</e:Group>
+		<e:Group x="0" y="0">
+		<e:Image source="border1_png" scale9Grid="28,20,26,2" x="0" y="0" width="170"/>
+		<e:Label id="energyText" text="12345" x="50" size="24" y="9"/>
+		<e:Image id="addEnergyBtn" source="icon_add2_png" y="0" right="0"/>
+		<e:Image x="-4" y="-3.5" source="icon_love_png"/>
+		</e:Group>
+		<e:Group x="0" y="0">
+		<e:Image source="border1_png" scale9Grid="28,20,26,2" x="0" y="0" width="160"/>
+		<e:Label id="diamondText" text="12345" x="50" size="24" y="9"/>
+		<e:Image id="addDiamondBtn" source="icon_add2_png" y="0" right="0"/>
+		<e:Image x="-10" y="-1.5" source="icon_diamond_png"/>
+		</e:Group>
+		<e:layout>
+		<e:HorizontalLayout gap="15"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

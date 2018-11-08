@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ChangeHeadItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" width="100" height="100" states="up,down" >
+	<ns1:HeadMC skinName="HeadMCSkin" id="headMC" width="94" height="94" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image source="border_10_png" scale9Grid="17,14,26,26" width="100" height="100" horizontalCenter="0" verticalCenter="0" visible.up="false"/>
+	<e:Image id="chooseMC" source="border_5_png" horizontalCenter="0" bottom="0" visible="false"/>
+</e:Skin>

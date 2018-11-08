@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RankUISkin" width="640" height="960" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="bg3_png" scale9Grid="16,15,7,7" x="0" y="0" width="100%" height="100%"/>
+	<e:Image source="bg15_png" x="0" top="120" bottom="0" width="640" scale9Grid="19,18,10,8"/>
+	<ns1:TopUI id="topUI" width="100%" x="0" y="0" skinName="TopUISkin"/>
+	<ns1:BottomUI id="bottomUI" x="0" skinName="BottomUISkin" bottom="0"/>
+	<e:Scroller id="scroller" width="640" x="0" top="130" bottom="100" bounces="false">
+		<e:Group>
+		<e:List id="list" width="200" height="200" x="56" y="68">
+			<e:layout>
+				<e:VerticalLayout paddingLeft="10" paddingBottom="6"/>
+			</e:layout>
+		</e:List>
+		</e:Group>
+	</e:Scroller>
+	<e:TabBar id="tab" y="67" itemRendererSkinName="MyTabItemSkin" width="560" horizontalCenter="0">
+		<e:ArrayCollection>
+		<e:Array>
+			<e:Object label="战力"/>
+			<e:Object label="战役"/>
+			<e:Object label="生产"/>
+			<e:Object label="竞技"/>
+		</e:Array>
+		</e:ArrayCollection>
+				<e:layout>
+        			<e:HorizontalLayout horizontalAlign="justify"/>
+        		</e:layout>
+	</e:TabBar>
+	<e:Group id="emptyGroup" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="icon_empty_png" y="0" scaleX="1.3" scaleY="1.3" horizontalCenter="-0.5"/>
+		<e:Label text="当前还没有人进入该排行榜" y="100" horizontalCenter="0" size="24"/>
+	</e:Group>
+
+</e:Skin>

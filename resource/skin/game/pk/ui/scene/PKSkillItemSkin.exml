@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKSkillItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" height="52" width="200" states="left,right" >
+	<e:Image source="black_bg2_png" height="40" left="30" right="0" scaleX.right="-1" scale9Grid="0,12,5,74" verticalCenter="0" left.right="0" right.right="30"/>
+	<e:Image source="bg3_png" top="0" bottom="0" scale9Grid="16,15,7,7" width="46" x="0" right.right="10" x.left="10"/>
+	<ns1:CardImg id="img" width="40" height="46"  verticalCenter="0" x="3" right.right="13" x.left="13"/>
+	<e:Label id="nameText" text="召唤黑" size="24" verticalCenter="0" right.right="60" x.left="60"/>
+</e:Skin>

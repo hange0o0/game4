@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="InfoItem2Skin" xmlns:e="http://ns.egret.com/eui" width="215">
+	<e:Label text="{data.title}" x="3.5" y="0" size="22" textColor="0xfcedae" stroke="2" strokeColor="0x160900"/>
+	<e:Group x="0" y="25" width="100%">
+		<e:Rect width="100%" height="40" x="0" y="0" strokeColor="0x3f1a00" strokeWeight="1" ellipseWidth="10" fillColor="0x331e05"/>
+		<e:Label text="{data.value}" x="10" size="26" verticalCenter="0"/>
+	</e:Group>
+</e:Skin>

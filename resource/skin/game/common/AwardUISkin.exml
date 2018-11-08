@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="AwardUISkin" width="580" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="normal,des" >
+	<e:Image scale9Grid="33,31,4,6" x="0" y="0" width="100%" height="100%" source="bg14_png"/>
+
+	<e:Group id="btnGroup" horizontalCenter="0" bottom="20">
+		<e:Button id="okBtn" label="谢 谢" width="150" skinName="Btn1Skin" x="0" y="0"/>
+		<e:Button id="btn2" label="知道了" width="150" x="0" y="240" skinName="Btn4Skin"/>
+		<e:layout>
+			<e:HorizontalLayout gap="40"/>
+		</e:layout>
+	</e:Group>
+	<e:Scroller id="scroller" width="500" horizontalCenter="0" top="70" bottom="120" minHeight="150" maxHeight="500" bounces="false" top.des="100" top.normal="80" bottom.normal="100">
+		<e:Group>
+			<e:List id="list" width="500" itemRendererSkinName="AwardItemSkin" x="0">
+				<e:layout>
+					<e:VerticalLayout verticalAlign="middle" horizontalAlign="center"/>
+				</e:layout>
+			</e:List>
+		</e:Group>
+	</e:Scroller>
+	<e:Group y="-40" horizontalCenter="0">
+		<e:Image source="title_bg3_png" width="540" x="0" y="0" scale9Grid="83,15,285,45"/>
+		<e:Label id="titleText" text="恭喜获得" y="23" size="30" stroke="2" strokeColor="0x140000" horizontalCenter="0"/>
+	</e:Group>
+	<e:Label id="desText" text="Label" textColor="0xFFE6AA" includeIn="des" horizontalCenter="0" size="23" height="60" lineSpacing="6" textAlign="center" verticalAlign="middle"  y="35"/>
+</e:Skin>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PKAddStateSkin" width="32" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="32">
+	<e:Image id="stateMC" x="0" width="32" height="32" verticalCenter="0" source="buff_1_png"/>
+</e:Skin>
