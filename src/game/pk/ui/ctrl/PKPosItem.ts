@@ -72,7 +72,7 @@ class PKPosItem extends game.BaseItem {
         PKCardInfoUI.getInstance().show({
             target:this,
             mid:data.mid,
-            force:player.force,
+            force:player.getMonsterForce(data.mid),
             type:player.type,
             pos:data.id,
             rota:player.teamData.atkRota,
@@ -95,54 +95,54 @@ class PKPosItem extends game.BaseItem {
 
     private lastFullCD = 0;
     private onTimer(){
-        var data:PKPosCardData = this.data;
-        var barWidth = 204
-
-        var cd = data.getNextCD();
-        var maxCD = data.getMaxCD();
-
-        if(data.enableMaxNum)
-        {
-            maxCD = data.enableMaxNum
-            cd = Math.max(0,maxCD - data.enableNum)
-        }
-        else if(data.num && data.mid > PKConfig.skillBeginID)
-        {
-            if(data.getVO().num < 100)
-            {
-                cd = data.getRemainCD();
-                maxCD = maxCD * Math.max(1,data.getMaxNum()-1);
-            }
-        }
-
-        if(data.mid < PKConfig.skillBeginID)
-        {
-            this.numGroup.visible = true;
-            this.numText.text = (data.getMaxNum() - data.num) + '';
-        }
-        else
-        {
-            this.numGroup.visible = false;
-        }
-
-        if(data.num == 0)
-            this.barMC.source = 'bar2_png'
-        else
-            this.barMC.source = 'bar1_png'
-
-        this.barMC.width = barWidth * (maxCD - cd) / maxCD;
-
-        if(cd == 0 && data.mid < PKConfig.skillBeginID)
-        {
-             this.lightBG.visible = egret.getTimer() - this.lastFullCD < 200
-            this.tw.setPaused(false)
-            this.lastFullCD = egret.getTimer();
-        }
-        else
-        {
-            this.lightBG.visible = false
-            this.tw.setPaused(true)
-        }
+        //var data:PKPosCardData = this.data;
+        //var barWidth = 204
+        //
+        //var cd = data.getNextCD();
+        //var maxCD = data.getMaxCD();
+        //
+        //if(data.enableMaxNum)
+        //{
+        //    maxCD = data.enableMaxNum
+        //    cd = Math.max(0,maxCD - data.enableNum)
+        //}
+        //else if(data.num && data.mid > PKConfig.skillBeginID)
+        //{
+        //    if(data.getVO().num < 100)
+        //    {
+        //        cd = data.getRemainCD();
+        //        maxCD = maxCD * Math.max(1,data.getMaxNum()-1);
+        //    }
+        //}
+        //
+        //if(data.mid < PKConfig.skillBeginID)
+        //{
+        //    this.numGroup.visible = true;
+        //    this.numText.text = (data.getMaxNum() - data.num) + '';
+        //}
+        //else
+        //{
+        //    this.numGroup.visible = false;
+        //}
+        //
+        //if(data.num == 0)
+        //    this.barMC.source = 'bar2_png'
+        //else
+        //    this.barMC.source = 'bar1_png'
+        //
+        //this.barMC.width = barWidth * (maxCD - cd) / maxCD;
+        //
+        //if(cd == 0 && data.mid < PKConfig.skillBeginID)
+        //{
+        //     this.lightBG.visible = egret.getTimer() - this.lastFullCD < 200
+        //    this.tw.setPaused(false)
+        //    this.lastFullCD = egret.getTimer();
+        //}
+        //else
+        //{
+        //    this.lightBG.visible = false
+        //    this.tw.setPaused(true)
+        //}
     }
 
     private renewImg(mid){

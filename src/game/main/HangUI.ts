@@ -34,7 +34,7 @@ class HangUI extends game.BaseItem {
 
     public resetHeight(h){
         this.height = h;
-        this.con.mask = new egret.Rectangle(0,0,580-5*2,h-5*2)
+        //this.con.mask = new egret.Rectangle(0,0,580-5*2,h-5*2)
     }
 
     public onVisibleChange(b){
@@ -92,7 +92,8 @@ class HangUI extends game.BaseItem {
         var pkvideo = PKVideoCon.getInstance();
         this.con.addChild(pkvideo)
         pkvideo.y = this.height-510;
-        pkvideo.init();
+        pkvideo.init(true);
+        pkvideo.x = -(PKConfig.floorWidth + PKConfig.appearPos*2 - 640)/2;     // + PKConfig.appearPos
         this.cost1 = 20
         this.cost2 = 20
         this.overCount = 0
@@ -158,35 +159,36 @@ class HangUI extends game.BaseItem {
                 return;
         }
 
-        var item = PKData.getInstance().getFirstItem(PKData.getInstance().myPlayer.teamData.id);
-        if(!item && PD.actionTime > 10*1000)
-            item = PKData.getInstance().getFirstItem(PKData.getInstance().myPlayer.teamData.enemy.id);
-        if(item)
-        {
-            var w = 580
-            var scrollH = -(item.x - w/2);
-            if(scrollH > 0)
-                scrollH = 0;
-            else if(scrollH < w - videoCon.width)
-                scrollH = w - videoCon.width;
-            var dec = Math.abs(videoCon.x - scrollH)
-            var rote =  videoCon.x > scrollH ?1:-1
-            if(dec > 80 || this.lastRota == rote)
-            {
-                egret.Tween.removeTweens(videoCon)
-                if(dec > 10)
-                {
-                    var tw = egret.Tween.get(videoCon)
-                    tw.to({x:scrollH},Math.min(300,dec*10))
-                }
-                else
-                {
-                    videoCon.x = scrollH;
-                }
-                this.lastRota = rote
-            }
+        //videoCon.x = -(videoCon.width-640)/2;
 
-        }
+        //var item = PKData.getInstance().getFirstItem(PKData.getInstance().myPlayer.teamData.id);
+        //if(!item && PD.actionTime > 10*1000)
+        //    item = PKData.getInstance().getFirstItem(PKData.getInstance().myPlayer.teamData.enemy.id);
+        //if(item)
+        //{
+        //    var w = 580
+        //    var scrollH = -(item.x - w/2);
+        //    if(scrollH > 0)
+        //        scrollH = 0;
+        //    else if(scrollH < w - videoCon.width)
+        //        scrollH = w - videoCon.width;
+        //    var dec = Math.abs(videoCon.x - scrollH)
+        //    var rote =  videoCon.x > scrollH ?1:-1
+        //    if(dec > 80 || this.lastRota == rote)
+        //    {
+        //        egret.Tween.removeTweens(videoCon)
+        //        if(dec > 10)
+        //        {
+        //            var tw = egret.Tween.get(videoCon)
+        //            tw.to({x:scrollH},Math.min(300,dec*10))
+        //        }
+        //        else
+        //        {
+        //            videoCon.x = scrollH;
+        //        }
+        //        this.lastRota = rote
+        //    }
+        //}
     }
 
     private getTestID(){

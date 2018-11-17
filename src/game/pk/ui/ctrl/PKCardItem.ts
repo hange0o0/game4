@@ -60,7 +60,7 @@ class PKCardItem extends game.BaseItem {
         PKCardInfoUI.getInstance().show({
             target:this,
             mid:this.data.mid,
-            force:player.force,
+            force:player.getMonsterForce(this.data.mid),
             rota:player.teamData.atkRota,
             teamDef:player.teamData.getTeamDef(),
             type:player.type
@@ -171,34 +171,34 @@ class PKCardItem extends game.BaseItem {
             return;
         var vo:any = CM.getCardVO(this.data.mid)
         var mp = vo.cost
-        var canvas = !GameManager.getInstance().isWebGL();
+        //var canvas = !GameManager.getInstance().isWebGL();
 
-        var barW = 80
-        var barH = 92
+        //var barW = 80
+        //var barH = 92
         if(nowMp < mp)
         {
-            if(canvas && this.lastMPChangeTime && egret.getTimer() - this.lastMPChangeTime < 1000)
-                return;
+            //if(canvas && this.lastMPChangeTime && egret.getTimer() - this.lastMPChangeTime < 1000)
+            //    return;
             //this.costText.textColor = 0xFF0000
             this.img2.visible = true;
-            this.cdText.visible = true;
-
-            this.lastMPChangeTime = egret.getTimer();
-            var h = barH * (mp - nowMp)/mp;
-            this.img2.mask = new egret.Rectangle(0,barH - h,barW,h)
-
-            var PD = PKData.getInstance();
-            var cd = ((PKTool.getMPTime(mp + PD.myPlayer.useMP) - PD.actionTime)/1000).toFixed(canvas?0:1);
-            this.cdText.text = cd + 's';
+            //this.cdText.visible = true;
+            //
+            //this.lastMPChangeTime = egret.getTimer();
+            //var h = barH * (mp - nowMp)/mp;
+            //this.img2.mask = new egret.Rectangle(0,barH - h,barW,h)
+            //
+            //var PD = PKData.getInstance();
+            //var cd = ((PKTool.getMPTime(mp + PD.myPlayer.useMP) - PD.actionTime)/1000).toFixed(canvas?0:1);
+            //this.cdText.text = cd + 's';
             this.bg.source = 'border_16_png'
         }
         else
         {
             //this.costText.textColor = 0xFFFFFF
             this.img2.visible = false;
-            this.cdText.visible = false;
+            //this.cdText.visible = false;
             this.bg.source = vo.getBG();
-            this.lastMPChangeTime = 0;
+            //this.lastMPChangeTime = 0;
         }
     }
 

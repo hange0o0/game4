@@ -10,7 +10,7 @@
 		<e:Label id="hpText2" text="15" size="22" stroke="2" verticalCenter="0" horizontalCenter="0"/>
 	</e:Group>
 	<e:Group id="player1" x="10" y="15">
-		<e:Label id="scoreText1" text="苦顶替" size="20" stroke="3" verticalAlign="bottom" x="75" strokeColor="0x231507"  y="35" textColor="0xfce794"/>
+		<e:Label id="scoreText1" text="苦顶替" size="20" stroke="3" verticalAlign="bottom" x="75" strokeColor="0x231507"  y="38" textColor="0xfce794"/>
 		<ns1:HeadMC id="headMC1" width="60" height="60" x="0" skinName="HeadMCSkin"  y="0"/>
 		<e:Group x="70" y="5">
 			<e:Label id="nameText1" text="苦顶替" size="26" stroke="3" verticalAlign="bottom" x="0" textColor="0xFFFFFF" strokeColor="0x231507" y="0"/>
@@ -21,7 +21,7 @@
 		</e:Group>
 	</e:Group>
 	<e:Group id="player2" y="10" right="10">
-		<e:Label id="scoreText2" text="苦顶替" size="20" stroke="3" verticalAlign="bottom" textColor="0xFCE794" strokeColor="0x231507" y="35" right="75"/>
+		<e:Label id="scoreText2" text="苦顶替" size="20" stroke="3" verticalAlign="bottom" textColor="0xFCE794" strokeColor="0x231507" y="38" right="75"/>
 		<ns1:HeadMC id="headMC2" width="60" height="60" skinName="HeadMCSkin" y="0" right="0"/>
 		<e:Group y="5" right="70">
 			<e:Image id="view2" source="pk_view_icon_png" y="3" x="11"/>
@@ -31,4 +31,5 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
+	<e:Label id="cdText" text="Label" y="33" horizontalCenter="0"/>
 </e:Skin>

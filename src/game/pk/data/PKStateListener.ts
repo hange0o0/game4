@@ -1,5 +1,5 @@
 class PKStateListener { //图腾类，会针对状态改变进行触发
-    public owner:PKMonsterData|PKPosCardData;     //
+    public owner:PKMonsterData;     //
     public endTime = 0; //到这个点时会自动销毁
     public mvID = 0;
     public stopDieRemove = false; //如果true,即使主人没了也不要移除

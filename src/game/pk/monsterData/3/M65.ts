@@ -13,7 +13,7 @@ class M65 extends MBase {
         var owner = PD.getPlayer(user.owner);
         var atkRota = owner.teamData.atkRota;
         var mData = {
-            force:owner.force,
+            force:owner.getMonsterForce(mid),
             mid:mid,
             owner:user.owner,
             atkRota:atkRota,

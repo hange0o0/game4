@@ -1,6 +1,21 @@
 class PKTool {
 
     //对自动队列进行解析
+    public static cdData = [
+        {cd:0,mp:20},
+        {cd:10,mp:20},
+        {cd:15,mp:25},
+        {cd:20,mp:25},
+        {cd:25,mp:30},
+        {cd:30,mp:30},
+        {cd:30,mp:35},
+        {cd:30,mp:35},
+        {cd:30,mp:40},
+        {cd:30,mp:40},
+        {cd:30,mp:40},
+    ]
+    //private static step = [20, 25, 30, 30, 35, 35, 40, 40, 40, 40] //addMP
+    //public static cd = [0, 10, 15, 30, 30, 30, 30, 30, 30, 30];   //215秒
     private static mpList;
     public static getMPList(){  //每点费用的获得时间
         if(!this.mpList)//初始化一次
@@ -9,9 +24,9 @@ class PKTool {
             while(true)
             {
                 var time = this.getMPTime(this.mpList.length)
-                this.mpList.push(time);
                 if(time > PKConfig.drawTime)
                     break
+                this.mpList.push(time);
             }
             //var max = 250
             //for(var i=1;i<=max;i++)
@@ -22,43 +37,39 @@ class PKTool {
         return this.mpList.concat()
     }
 
+    public static getRound(t){
+        if(t == 0)
+            return 1;
+        var cd = 0;
+        for(var i=0;i<this.cdData.length;i++)
+        {
+            cd +=this.cdData[i].cd*1000;
+            if(t< cd)
+                return i;
+        }
+        return this.cdData.length;
+    }
+
     public static decodeAutoList(arr) {
-
-        //会改到原数组
-        var mpList = this.getMPList();
-        //技能影响
-
         var returnArr = [];
-        var mpCost = 0;
         var index = 1;
+        var cd = 0
         for(var i=0;i<arr.length;i++)
         {
-            var id = arr[i]
-
-            if(id > 0)
+            var data = arr[i]
+            var list = data.split(',');
+            cd += this.cdData[i].cd*1000;
+            for(var j=0;j<list.length;j++)
             {
-                var vo = CM.getCardVO(id);
-                var mp = vo.cost
-                var t = mpList[mpCost + mp]//可以同时上阵的时间点
                 returnArr.push({
-                    mid:id,
-                    time:t,
+                    mid:list[j],
+                    time:cd + PKConfig.stepCD*j*2 + PKConfig.stepCD*2,
                     id:index
                 })
                 index ++;
-
-                if(!vo.isMonster && vo.sv4 == -10001)
-                {
-                    this.addMPTime(mpList,t + PKConfig.beforeCD + vo.cd,vo.sv1+mp)
-                }
             }
-            else
-            {
-                var mp = -id;
-            }
-
-            mpCost += mp;
         }
+        console.log(returnArr)
         return returnArr;
     }
 
@@ -151,27 +162,22 @@ class PKTool {
         return mp;
     }
 
-    public static getMPTime(mp){
+    //首次15秒，后面30秒的CD
+    public static getMPTime(mp) {
         //30+40+60*3 = 250
-        var step0 = PKConfig.mpInit;//初始值
-        var step1 = 30;//第一分钟产量
-        var step2 = 40;//第二分钟产量
-        var step3 = 60;//之后每分钟的产量
 
-        if(mp <= step0)
-            return 0
-        mp -= step0;
-
-        if(mp <= step1)
-            return mp/step1 * 60*1000
-
-        mp -= step1;
-        if(mp <= step2 )
-            return mp/step2 * 60*1000 + 60*1000;
-
-        mp -= step2;
-        return mp/step3 * 60*1000 + 60*1000*2;
-
+        //var step = this.step;
+        //var cd = this.cd;   //215秒
+        var currentStep = 0;
+        var currentCD = 0;
+        for (var i = 0; i < this.cdData.length; i++) {
+            currentStep += this.cdData[i].mp;
+            currentCD += this.cdData[i].cd;
+            if (currentStep >= mp) {
+                return currentCD * 1000;
+            }
+        }
+        return Number.MAX_VALUE;
     }
 
     //取攻击属性的相克

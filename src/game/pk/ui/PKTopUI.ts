@@ -18,6 +18,7 @@ class PKTopUI extends game.BaseContainer {
     private headMC2: HeadMC;
     private view2: eui.Image;
     private nameText2: eui.Label;
+    private cdText: eui.Label;
 
 
 
@@ -28,11 +29,11 @@ class PKTopUI extends game.BaseContainer {
 
 
 
-    public itemArr = []
-    public itempool = []
-    public skillItemArr = []
-    public skillItemPool = []
-    private index = 1;
+    //public itemArr = []
+    //public itempool = []
+    //public skillItemArr = []
+    //public skillItemPool = []
+    //private index = 1;
     public constructor() {
         super();
 
@@ -47,6 +48,11 @@ class PKTopUI extends game.BaseContainer {
         this.touchEnabled = false;
     }
 
+    public onTimer(){
+        var cd = Math.floor(PKData.getInstance().actionTime/1000)
+        this.cdText.text = DateUtil.getStringBySecond(cd).substr(-5);
+    }
+
 
     public onVideoEvent(e){
         if(!this.stage)
@@ -55,22 +61,22 @@ class PKTopUI extends game.BaseContainer {
         var videoData = e.data;
         switch(videoData.type)//动画类型
         {
-            case PKConfig.VIDEO_POS_SHOW:
-                if(videoData.isHero)
-                {
-                    if(videoData.user.teamData != PKData.getInstance().myPlayer.teamData)
-                    {
-                        this.addSkillItem(videoData);
-                    }
-                    break
-                }
-                var data:PKPosCardData = videoData.user;
-                var teamData = data.getOwner().teamData
-                if(teamData.id != 'sys' && teamData != PKData.getInstance().myPlayer.teamData)
-                    this.addSkillItem(data);
-                if(data.mid > PKConfig.skillBeginID)
-                    this.addSkill(data)
-                break;
+            //case PKConfig.VIDEO_POS_SHOW:
+            //    if(videoData.isHero)
+            //    {
+            //        if(videoData.user.teamData != PKData.getInstance().myPlayer.teamData)
+            //        {
+            //            this.addSkillItem(videoData);
+            //        }
+            //        break
+            //    }
+            //    var data:PKPosCardData = videoData.user;
+            //    var teamData = data.getOwner().teamData
+            //    if(teamData.id != 'sys' && teamData != PKData.getInstance().myPlayer.teamData)
+            //        this.addSkillItem(data);
+            //    if(data.mid > PKConfig.skillBeginID)
+            //        this.addSkill(data)
+            //    break;
             case PKConfig.VIDEO_MONSTER_WIN:
             case PKConfig.VIDEO_TEAM_HP_CHANGE:
                 this.renewHp();
@@ -81,137 +87,148 @@ class PKTopUI extends game.BaseContainer {
             //case PKConfig.VIDEO_TEAM_DEF2:
             //    this.def2();
             //    break;
-            case PKConfig.VIDEO_MYPLAYER_CHANGE:
-                this.onMyPlayerChange();
-                break;
+            //case PKConfig.VIDEO_MYPLAYER_CHANGE:
+            //    this.onMyPlayerChange();
+            //    break;
         }
     }
 
-    public onMyPlayerChange(){
-        var posList = PKData.getInstance().myPlayer.teamData.enemy.posList
-        while(this.itemArr.length)
-        {
-            this.freeItem(this.itemArr.pop())
-        }
-
-        this.index = posList.length + 1;
-        for(var i=0;i<7;i++)
-        {
-            var data = posList[i];
-            var item = this.createItem();
-            this.itemArr.push(item)
-            item.x = this.getX(i);
-            this.addChild(item);
-            if(data)
-                data.topIndex = this.index - 1 - i;
-            item.data = data;
-        }
-        this.renewViewPos();
-    }
-
-    private createSkillItem():PKSkillItem{
-        var item:PKSkillItem = this.skillItemPool.pop();
-        if(!item)
-        {
-            item = new PKSkillItem();
-        }
-        return item;
-    }
-
-    public removeSkillItem(item){
-        var index = this.skillItemArr.indexOf(item);
-        if(index != -1)
-        {
-            this.skillItemArr.splice(index,1);
-            this.freeSkillItem(item);
-        }
-    }
-
-    public freeSkillItem(item){
-        if(!item)
-            return;
-        item.remove();
-        this.skillItemPool.push(item);
-    }
-
-
-    public addSkill(data){
-        if(data.mid > 500)
-            return;
-
-        var teamData = data.getOwner().teamData
-        var item = this.createSkillItem();
-        this.addChild(item)
-
-        if(teamData.atkRota == PKConfig.ROTA_LEFT)
-        {
-            item.currentState = 'left'
-            item.index = this.getIndex('left')
-            item.data = data;
-        }
-        else
-        {
-            item.currentState = 'right'
-            item.index = this.getIndex('right')
-            item.data = data;
-        }
-        this.skillItemArr.push(item)
-    }
-
-    private getIndex(type){
-        var indexObj = {};
-        for(var i=0;i<this.skillItemArr.length;i++)
-        {
-            var item = this.skillItemArr[i];
-            if(item.currentState == type)
-            {
-                indexObj[item.index] = true;
-            }
-        }
-        var index = 1;
-        while(true)
-        {
-            if(!indexObj[index])
-                return index;
-            index++;
-        }
-    }
-
-
-    private createItem():PKTopItem{
-        var item:PKTopItem = this.itempool.pop();
-        if(!item)
-        {
-            item = new PKTopItem();
-            item.y = 66;
-        }
-        return item;
-    }
-
-    private freeItem(item){
-        if(!item)
-            return;
-        item.remove();
-        this.itempool.push(item);
-
-    }
-
-    public remove(){
-        while(this.itemArr.length)
-        {
-            this.freeItem(this.itemArr.pop())
-        }
-        //while(this.skillItem2Arr.length)
-        //{
-        //    this.freeSkillItem2(this.skillItem2Arr.pop())
-        //}
-        while(this.skillItemArr.length)
-        {
-            this.freeSkillItem(this.skillItemArr.pop())
-        }
-    }
+    //public onMyPlayerChange(){
+    //    var posList = PKData.getInstance().myPlayer.teamData.enemy.posList
+    //    while(this.itemArr.length)
+    //    {
+    //        this.freeItem(this.itemArr.pop())
+    //    }
+    //
+    //    this.index = posList.length + 1;
+    //    for(var i=0;i<7;i++)
+    //    {
+    //        var data = posList[i];
+    //        var item = this.createItem();
+    //        this.itemArr.push(item)
+    //        item.x = this.getX(i);
+    //        this.addChild(item);
+    //        if(data)
+    //            data.topIndex = this.index - 1 - i;
+    //        item.data = data;
+    //    }
+    //    this.renewViewPos();
+    //}
+    //
+    //private createSkillItem():PKSkillItem{
+    //    var item:PKSkillItem = this.skillItemPool.pop();
+    //    if(!item)
+    //    {
+    //        item = new PKSkillItem();
+    //    }
+    //    return item;
+    //}
+    //
+    //public removeSkillItem(item){
+    //    var index = this.skillItemArr.indexOf(item);
+    //    if(index != -1)
+    //    {
+    //        this.skillItemArr.splice(index,1);
+    //        this.freeSkillItem(item);
+    //    }
+    //}
+    //
+    //public freeSkillItem(item){
+    //    if(!item)
+    //        return;
+    //    item.remove();
+    //    this.skillItemPool.push(item);
+    //}
+    //
+    //
+    //public addSkill(data){
+    //    if(data.mid > 500)
+    //        return;
+    //
+    //    var teamData = data.getOwner().teamData
+    //    var item = this.createSkillItem();
+    //    this.addChild(item)
+    //
+    //    if(teamData.atkRota == PKConfig.ROTA_LEFT)
+    //    {
+    //        item.currentState = 'left'
+    //        item.index = this.getIndex('left')
+    //        item.data = data;
+    //    }
+    //    else
+    //    {
+    //        item.currentState = 'right'
+    //        item.index = this.getIndex('right')
+    //        item.data = data;
+    //    }
+    //    this.skillItemArr.push(item)
+    //}
+    //
+    //private getIndex(type){
+    //    var indexObj = {};
+    //    for(var i=0;i<this.skillItemArr.length;i++)
+    //    {
+    //        var item = this.skillItemArr[i];
+    //        if(item.currentState == type)
+    //        {
+    //            indexObj[item.index] = true;
+    //        }
+    //    }
+    //    var index = 1;
+    //    while(true)
+    //    {
+    //        if(!indexObj[index])
+    //            return index;
+    //        index++;
+    //    }
+    //}
+    //
+    //
+    //private createItem():PKTopItem{
+    //    var item:PKTopItem = this.itempool.pop();
+    //    if(!item)
+    //    {
+    //        item = new PKTopItem();
+    //        item.y = 66;
+    //    }
+    //    return item;
+    //}
+    //
+    //private freeItem(item){
+    //    if(!item)
+    //        return;
+    //    item.remove();
+    //    this.itempool.push(item);
+    //
+    //}
+    //
+    //public remove(){
+    //    while(this.itemArr.length)
+    //    {
+    //        this.freeItem(this.itemArr.pop())
+    //    }
+    //    //while(this.skillItem2Arr.length)
+    //    //{
+    //    //    this.freeSkillItem2(this.skillItem2Arr.pop())
+    //    //}
+    //    while(this.skillItemArr.length)
+    //    {
+    //        this.freeSkillItem(this.skillItemArr.pop())
+    //    }
+    //}
 
     public init(title){
+
+        var player = PKData.getInstance().myPlayer
+        this.scoreText1.text = player.score
+        this.nameText1.text = player.nick
+        this.headMC1.setData(player.head)
+
+        player = PKData.getInstance().otherPlayer
+        this.scoreText2.text = player.score
+        this.nameText2.text = player.nick
+        this.headMC2.setData(player.head)
+
         //this.topUI.setTitle(title);
         //if(GameManager.stage.stageHeight > 1050)
         //    this.y = 0
@@ -220,37 +237,37 @@ class PKTopUI extends game.BaseContainer {
 
 
         //this.cdGroup.visible = false
-        this.index = 1;
+        //this.index = 1;
         this.renewHp()
 
-        this.remove();
-
-        for(var i=0;i<7;i++)
-        {
-            var item = this.createItem();
-            this.itemArr.push(item)
-            item.x = this.getX(i);
-            this.addChild(item);
-            item.data = null;
-        }
+        //this.remove();
+        //
+        //for(var i=0;i<7;i++)
+        //{
+        //    var item = this.createItem();
+        //    this.itemArr.push(item)
+        //    item.x = this.getX(i);
+        //    this.addChild(item);
+        //    item.data = null;
+        //}
 
         //处理预显示
-        if(PKData.getInstance().showTopNum)
-        {
-            var list = PKData.getInstance().otherPlayer.autolist.split(',');
-            var num = PKData.getInstance().showTopNum;
-            if(num > 7)
-                num = 7
-            for(var i=0;i<num;i++)
-            {
-                //var cardData = new PKPosCardData({
-                //    mid:list[num - i - 1],
-                //    isLock:true,
-                //    topIndex:num - i
-                //})
-                this.itemArr[i].data = this.createLockData(list[num - i - 1],num - i);
-            }
-        }
+        //if(PKData.getInstance().showTopNum)
+        //{
+        //    var list = PKData.getInstance().otherPlayer.autolist.split(',');
+        //    var num = PKData.getInstance().showTopNum;
+        //    if(num > 7)
+        //        num = 7
+        //    for(var i=0;i<num;i++)
+        //    {
+        //        //var cardData = new PKPosCardData({
+        //        //    mid:list[num - i - 1],
+        //        //    isLock:true,
+        //        //    topIndex:num - i
+        //        //})
+        //        this.itemArr[i].data = this.createLockData(list[num - i - 1],num - i);
+        //    }
+        //}
 
 
 
@@ -305,85 +322,85 @@ class PKTopUI extends game.BaseContainer {
     }
 
 
-    public addSkillItem(data,isHero?){
-        for(var i=0;i<this.itemArr.length;i++)
-        {
-           if(this.itemArr[i].data && this.itemArr[i].data.isLock && this.itemArr[i].data.topIndex == this.index)
-           {
-               this.itemArr[i].data = data;
-               this.itemArr[i].dataChanged();
-               //要加入一个新的
-               if(i == 1 && this.index+1 < PKData.getInstance().showTopNum)
-               {
-                   var list = PKData.getInstance().otherPlayer.autolist.split(',');
-                   this.removeTopItem();
-                   this.addTopItem(this.createLockData(list[this.index+1],this.index + 2));
-                   //this.addTopItem({
-                   //    mid:list[this.index+1],
-                   //    isLock:true,
-                   //    topIndex:this.index + 2
-                   //});
-               }
-
-               this.index ++
-               return;
-           }
-        }
-
-        this.removeTopItem();
-
-        //加入一个
-        data.topIndex = this.index
-        this.index ++;
-        this.addTopItem(data);
-    }
-
-    private createLockData(mid,index){
-        return  new PKPosCardData({
-            mid:mid,
-            isLock:true,
-            owner:PKData.getInstance().otherPlayer.id,
-            topIndex:index
-        })
-    }
-
-    private removeTopItem(){
-        //移除一个
-        for(var i=0;i<this.itemArr.length;i++)
-        {
-            var item:PKTopItem = this.itemArr[i];
-            var targetX = this.getX(i+1);
-            egret.Tween.removeTweens(item)
-            var tw = egret.Tween.get(item)
-            tw.to({x:targetX},Math.abs(item.x - targetX)*2)
-            if(targetX >= this.getX(7))
-            {
-                item.disAppear();
-            }
-
-            if(item.removeAble)
-            {
-                this.itemArr.splice(i,1);
-                this.freeItem(item)
-                i--;
-            }
-        }
-
-    }
-
-    private addTopItem(data){
-        var item = this.createItem();
-        this.itemArr.unshift(item)
-        item.x = this.getX(0);
-        this.addChild(item);
-
-        item.data = data;
-        item.appear()
-    }
-
-    private getX(index){
-        return 16 + index*88
-    }
+    //public addSkillItem(data,isHero?){
+    //    for(var i=0;i<this.itemArr.length;i++)
+    //    {
+    //       if(this.itemArr[i].data && this.itemArr[i].data.isLock && this.itemArr[i].data.topIndex == this.index)
+    //       {
+    //           this.itemArr[i].data = data;
+    //           this.itemArr[i].dataChanged();
+    //           //要加入一个新的
+    //           if(i == 1 && this.index+1 < PKData.getInstance().showTopNum)
+    //           {
+    //               var list = PKData.getInstance().otherPlayer.autolist.split(',');
+    //               this.removeTopItem();
+    //               this.addTopItem(this.createLockData(list[this.index+1],this.index + 2));
+    //               //this.addTopItem({
+    //               //    mid:list[this.index+1],
+    //               //    isLock:true,
+    //               //    topIndex:this.index + 2
+    //               //});
+    //           }
+    //
+    //           this.index ++
+    //           return;
+    //       }
+    //    }
+    //
+    //    this.removeTopItem();
+    //
+    //    //加入一个
+    //    data.topIndex = this.index
+    //    this.index ++;
+    //    this.addTopItem(data);
+    //}
+    //
+    //private createLockData(mid,index){
+    //    return  new PKPosCardData({
+    //        mid:mid,
+    //        isLock:true,
+    //        owner:PKData.getInstance().otherPlayer.id,
+    //        topIndex:index
+    //    })
+    //}
+    //
+    //private removeTopItem(){
+    //    //移除一个
+    //    for(var i=0;i<this.itemArr.length;i++)
+    //    {
+    //        var item:PKTopItem = this.itemArr[i];
+    //        var targetX = this.getX(i+1);
+    //        egret.Tween.removeTweens(item)
+    //        var tw = egret.Tween.get(item)
+    //        tw.to({x:targetX},Math.abs(item.x - targetX)*2)
+    //        if(targetX >= this.getX(7))
+    //        {
+    //            item.disAppear();
+    //        }
+    //
+    //        if(item.removeAble)
+    //        {
+    //            this.itemArr.splice(i,1);
+    //            this.freeItem(item)
+    //            i--;
+    //        }
+    //    }
+    //
+    //}
+    //
+    //private addTopItem(data){
+    //    var item = this.createItem();
+    //    this.itemArr.unshift(item)
+    //    item.x = this.getX(0);
+    //    this.addChild(item);
+    //
+    //    item.data = data;
+    //    item.appear()
+    //}
+    //
+    //private getX(index){
+    //    return 16 + index*88
+    //}
 
 
 

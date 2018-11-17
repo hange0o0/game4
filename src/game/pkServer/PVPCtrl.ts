@@ -58,10 +58,10 @@ class PVPCtrl extends egret.EventDispatcher {
 
     public sendPKResult(isWin,fun?){
         PKServerManager.getInstance().sendData(GameEvent.pkserver.pk_result,{win:isWin},(msg)=>{
-            //if(msg.iswin)
-            //    PVPManager.getInstance().pkOnlineWin(msg.key,fun)
-            //else
-            //    PVPManager.getInstance().pkOnlineFail(msg.key,fun)
+            if(msg.iswin)
+                PVPManager.getInstance().pkOnlineWin(msg.key,fun)
+            else
+                PVPManager.getInstance().pkOnlineFail(msg.key,fun)
             PKServerManager.getInstance().close();
         },true)
     }

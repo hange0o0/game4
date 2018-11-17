@@ -343,7 +343,7 @@ class SoundManager {
             return;
         if(this.pkKey)
         {
-            MyRES.loadGroup( SoundManager.getInstance().effectKey);
+            MyRES.loadGroup( SoundManager.getInstance().pkKey);
             this.pkKey = null;
         }
     }

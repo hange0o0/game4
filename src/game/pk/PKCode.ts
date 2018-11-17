@@ -7,12 +7,6 @@ class PKCode {
     }
 
 
-
-
-
-
-
-
     //每一步执行
     public onStep(){
 
@@ -46,7 +40,7 @@ class PKCode {
             this.monsterAction();
             this.monsterMove();
             PKMonsterAction.getInstance().actionAtk(PD.actionTime);//攻击落实
-            this.heroAdd();
+            //this.heroAdd();
 
             this.actionFinish();
 
@@ -70,38 +64,38 @@ class PKCode {
     }
     ///////////////*********************************************************
 
-    //英雄出动
-    public heroAdd(){
-        var PD = PKData.getInstance();
-        if(PD.preLoadHeroStep < Math.floor((PD.actionTime + 1000*10)/PKConfig.heroCD))//预加载
-        {
-            PD.preLoadHeroStep ++;
-            for(var i=1;i<=PD.playerNum;i++) //暂时4个玩家
-            {
-                var player = PD.playerObj[i];
-                if (!player)
-                    continue
-                player.preloadHero(PD.preLoadHeroStep);
-            }
-        }
-
-        if(PD.heroStep < Math.floor(PD.actionTime/PKConfig.heroCD))
-        {
-            PD.heroStep ++;
-            var b = false
-            for(var i=1;i<=PD.playerNum;i++) //暂时4个玩家
-            {
-                var player = PD.playerObj[i];
-                if (!player)
-                    continue
-                b = player.addHero(PD.heroStep) || b;
-            }
-            if(b)
-                PD.addVideo({
-                    type:PKConfig.VIDEO_HERO_ADD
-                })
-        }
-    }
+    ////英雄出动
+    //public heroAdd(){
+    //    var PD = PKData.getInstance();
+    //    if(PD.preLoadHeroStep < Math.floor((PD.actionTime + 1000*10)/PKConfig.heroCD))//预加载
+    //    {
+    //        PD.preLoadHeroStep ++;
+    //        for(var i=1;i<=PD.playerNum;i++) //暂时4个玩家
+    //        {
+    //            var player = PD.playerObj[i];
+    //            if (!player)
+    //                continue
+    //            player.preloadHero(PD.preLoadHeroStep);
+    //        }
+    //    }
+    //
+    //    if(PD.heroStep < Math.floor(PD.actionTime/PKConfig.heroCD))
+    //    {
+    //        PD.heroStep ++;
+    //        var b = false
+    //        for(var i=1;i<=PD.playerNum;i++) //暂时4个玩家
+    //        {
+    //            var player = PD.playerObj[i];
+    //            if (!player)
+    //                continue
+    //            b = player.addHero(PD.heroStep) || b;
+    //        }
+    //        if(b)
+    //            PD.addVideo({
+    //                type:PKConfig.VIDEO_HERO_ADD
+    //            })
+    //    }
+    //}
 
     //自动出战上怪
     public autoAction(){
@@ -118,38 +112,20 @@ class PKCode {
 
     public actionPosCard(){
         var PD = PKData.getInstance();
-        for(var i=1;i<=PD.playerNum;i++) //暂时4个玩家
+        var currentRound = PKTool.getRound(PD.actionTime)
+        console.log(PD.round,currentRound);
+        if(PD.round == currentRound)
+        {
+              return
+        }
+        for(var i=1;i<=PD.playerNum;i++)
         {
             var player = PD.playerObj[i];
             if(!player)
-                continue
-            var needSpace = PKConfig.maxMonsterSpace - PD.getMonsterSpaceByPlayer(player.id);
-            var arr = player.getEnablePos(PD.actionTime,needSpace)
-
-            while(arr.length > 0)
-            {
-                PD.resetMonsterData();//重置技能数据，方便技能统计
-
-                var data = arr.shift();
-                if(data.mid < PKConfig.skillBeginID) //上怪
-                {
-                    if(needSpace > 0)
-                    {
-                        needSpace -= data.getVO().space;
-                        var mData = data.getMonster(PD.actionTime);
-
-                        PD.addMonster(mData);
-                        data.setHaveAdd(PD.actionTime);
-                    }
-                }
-                else
-                {
-                    data.actionSkill();
-                    data.setHaveAdd(PD.actionTime);
-                }
-
-            }
+                continue;
+            player.actionPosCard();
         }
+        PD.round = currentRound;
     }
 
     //怪出手
@@ -258,23 +234,23 @@ class PKCode {
         PD.team2.onStateTimer();
 
 
-        if(!PD.isReplay)
-        {
-            var player = PD.myPlayer
-            if(!player.autoList && player.getPosNum() == 0)
-            {
-                PD.onPosEmpty(player);
-            }
-        }
+        //if(!PD.isReplay)
+        //{
+        //    var player = PD.myPlayer
+        //    if(!player.autoList && player.getPosNum() == 0)
+        //    {
+        //        PD.onPosEmpty(player);
+        //    }
+        //}
 
-        if(PD.endless && PD.actionTime >= PD.endless)
-        {
-            PD.isGameOver = true;
-        }
-        if(PD.needcd && PD.actionTime >= PD.needcd)
-        {
-            PD.isGameOver = true;
-        }
+        //if(PD.endless && PD.actionTime >= PD.endless)
+        //{
+        //    PD.isGameOver = true;
+        //}
+        //if(PD.needcd && PD.actionTime >= PD.needcd)
+        //{
+        //    PD.isGameOver = true;
+        //}
 
 
         //if(PD.actionTime > 60000 && (PD.monsterList.length == 0 || PD.currentState == 'def') && !PD.isGameOver)//如果1min后有一方没牌了也结束

@@ -13,7 +13,7 @@ class M66 extends MBase {
         for(var i=0;i<num;i++)
         {
             var mData = {
-                force:owner.force,
+                force:owner.getMonsterForce(mid),
                 mid:mid,
                 owner:user.owner,
                 atkRota:atkRota,

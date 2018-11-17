@@ -28,6 +28,7 @@ class MainUI extends game.BaseUI {
     private tecBtn: eui.Group;
     private mailBtn: eui.Group;
     private mailRed: eui.Image;
+    private bottomBG: eui.Image;
     private settingBtn: eui.Group;
 
 
@@ -70,6 +71,7 @@ class MainUI extends game.BaseUI {
         this.pkBtn.visible = false;
         this.pairGroup.visible = true;
         this.cancelBtn.visible = false;
+        this.bottomBG.visible = false;
         egret.Tween.get(this.cancelBtn).wait(3000).call(()=>{
             this.cancelBtn.visible = true;
         })
@@ -90,6 +92,7 @@ class MainUI extends game.BaseUI {
         this.bottomGroup.alpha = 1;
         this.pkBtn.visible = true;
         this.pairGroup.visible = false;
+        this.bottomBG.visible = true;
 
         this.startTimer = 0;
         PKServerManager.getInstance().close();
@@ -189,7 +192,11 @@ class MainUI extends game.BaseUI {
             if(this.callOffline == 1)
             {
                 this.callOffline = 2
-                PVPManager.getInstance().pkOffline(()=>{
+                PVPManager.getInstance().pkOffline((pkdata)=>{
+                    if(pkdata)
+                    {
+                        this.onPairSuccess();
+                    }
                     this.callOffline = 0;
                 })
             }

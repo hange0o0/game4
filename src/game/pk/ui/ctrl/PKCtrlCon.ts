@@ -101,9 +101,9 @@ class PKCtrlCon extends game.BaseContainer {
 
         PKData.getInstance().addEventListener('video',this.onVideoEvent,this);
 
-        this.placeGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onTouchBegin,this)
-        this.placeGroup.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this)
-        this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this)
+        //this.placeGroup.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onTouchBegin,this)
+        //this.placeGroup.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this)
+        //this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this)
     }
 
     private onFace(){
@@ -120,30 +120,30 @@ class PKCtrlCon extends game.BaseContainer {
         this.renewSpeedBtn()
     }
 
-    private onTouchBegin(e){
-        if(GuideManager.getInstance().isGuiding)
-            return;
-        if(this.touchBeginXY)
-            return;
-        this.touchBeginXY = {
-            x:e.stageX,
-            y:e.stageY,
-        }
-    }
-    private onTouchMove(e){
-        if(!this.touchBeginXY)
-            return;
-        var addX = this.touchBeginXY.x - e.stageX;
-        PKingUI.getInstance().addScroll(addX);
-        this.touchBeginXY = {
-            x:e.stageX,
-            y:e.stageY,
-        }
-    }
-
-    private onTouchEnd(e?,mv?){
-        this.touchBeginXY = null
-    }
+    //private onTouchBegin(e){
+    //    if(GuideManager.getInstance().isGuiding)
+    //        return;
+    //    if(this.touchBeginXY)
+    //        return;
+    //    this.touchBeginXY = {
+    //        x:e.stageX,
+    //        y:e.stageY,
+    //    }
+    //}
+    //private onTouchMove(e){
+    //    if(!this.touchBeginXY)
+    //        return;
+    //    var addX = this.touchBeginXY.x - e.stageX;
+    //    PKingUI.getInstance().addScroll(addX);
+    //    this.touchBeginXY = {
+    //        x:e.stageX,
+    //        y:e.stageY,
+    //    }
+    //}
+    //
+    //private onTouchEnd(e?,mv?){
+    //    this.touchBeginXY = null
+    //}
 
     private onPlayer(){
         this.currentPlayer ++;
@@ -211,9 +211,9 @@ class PKCtrlCon extends game.BaseContainer {
             //        this.placeObj[videoData.user.id].showFail()
             //    break;
             case PKConfig.VIDEO_POS_ADD:
-                if(videoData.user.getOwner() == PKData.getInstance().myPlayer)
+                if(videoData.user == PKData.getInstance().myPlayer)
                 {
-                    this.addPosItem(videoData.user)
+                    this.addPosItem(videoData.user,videoData.mid)
                 }
                 break;
             case PKConfig.VIDEO_POS_REMOVE:
@@ -234,21 +234,23 @@ class PKCtrlCon extends game.BaseContainer {
         }
     }
 
-    private addPosItem(data){
+    private addPosItem(player,mid){
         var item = PKPosItem.createItem()
         this.placeGroup.addChild(item);
-        item.data = data;
+        item.data = {
+            mid:mid
+        };
         item.mvAdd();
         this.placeArr.push(item);
         this.needRenewCard = true;
 
-        if(this.tipsMC['cstate'] == 0 && !this.hideTips)
-        {
-            this.hideTips = true;           //.to({scaleX:1.2,scaleY:1.2},200).to({scaleX:0,scaleY:0,alpha:0},200)
-            egret.Tween.get(this.tipsMC).wait(500).to({x:534,y:420,scaleX:0.5,scaleY:0.5},500).call(()=>{
-                this.tipsMC['cstate'] = 1;
-            },this)
-        }
+        //if(this.tipsMC['cstate'] == 0 && !this.hideTips)
+        //{
+        //    this.hideTips = true;           //.to({scaleX:1.2,scaleY:1.2},200).to({scaleX:0,scaleY:0,alpha:0},200)
+        //    egret.Tween.get(this.tipsMC).wait(500).to({x:534,y:420,scaleX:0.5,scaleY:0.5},500).call(()=>{
+        //        this.tipsMC['cstate'] = 1;
+        //    },this)
+        //}
     }
 
     private mvRemoveItem(data){
@@ -279,9 +281,9 @@ class PKCtrlCon extends game.BaseContainer {
     }
 
     private getInfoPlayer(index){
-        if(index <= 2)
-            return PKData.getInstance().getTeamByRota(PKConfig.ROTA_LEFT).members[index-1]
-        return PKData.getInstance().getTeamByRota(PKConfig.ROTA_RIGHT).members[index-3]
+        if(index == 1)
+            return PKData.getInstance().getTeamByRota(PKConfig.ROTA_LEFT).members[0]
+        return PKData.getInstance().getTeamByRota(PKConfig.ROTA_RIGHT).members[0]
     }
 
 
@@ -319,9 +321,11 @@ class PKCtrlCon extends game.BaseContainer {
 
 
         var cardData = this.chooseCard.data
-        this.onAddPosCard(cardData)
+        cardData.remove = true;
         PD.myPlayer.addPosCard(cardData);
+        this.onAddPosCard(cardData)
 
+        this.door.visible = false;
 
         return true;
     }
@@ -336,10 +340,10 @@ class PKCtrlCon extends game.BaseContainer {
         }
         if(this.chooseCard && this.chooseCard.data == data)
             this.chooseCard = null
-        this.cardObj[data.cardPos].data.waiting = true;
-        this.cardObj[data.cardPos].dataChanged();
-        //this.needRenewCard = true
-        //this.renewCard()
+        //this.cardObj[data.cardPos].data.waiting = true;
+        //this.cardObj[data.cardPos].dataChanged();
+        this.needRenewCard = true
+        this.renewCard()
     }
 
     //服务器返回加入卡成功
@@ -363,12 +367,12 @@ class PKCtrlCon extends game.BaseContainer {
         this.dragTarget.x = e.data.x// - this.dragTarget.width/2;
         this.dragTarget.y = e.data.y// - this.dragTarget.height/2;
         this.overTarget = -1;
-        //this.overMC.visible = false
+        this.door.visible = false
 
-        if(e.data.y> GameManager.stage.stageHeight - 260 || (e.data.y < GameManager.stage.stageHeight-460 && e.data.y > PKingUI.getInstance().displayY))
+        if(e.data.y < GameManager.stage.stageHeight-PKingUI.getInstance().bottomHeight && e.data.y > PKingUI.getInstance().displayY + PKingUI.getInstance().displayCon)
         {
             this.overTarget = 1;
-            //this.overMC.visible = true
+            this.door.visible = true
         }
 
 
@@ -422,8 +426,9 @@ class PKCtrlCon extends game.BaseContainer {
     }
 
 
-    public init(){
+    public init(h){
         var PD = PKData.getInstance();
+        this.height = h;
         this.lastAddCardTime = 0;
         this.chooseCard = null;
         this.needRenewCard = true;
@@ -435,20 +440,20 @@ class PKCtrlCon extends game.BaseContainer {
 
         this.hideTips = false;
         this.tipsMC.visible = true;
-        this.tipsMC.x = 222;
-        this.tipsMC.y = 300;
-        egret.Tween.removeTweens(this.tipsMC)
-        this.tipsMC.scaleX = this.tipsMC.scaleY = 1
-        this.tipsMC.alpha = 1;
-        this.tipsMC['cstate'] = 0
+        //this.tipsMC.x = 222;
+        //this.tipsMC.y = 300;
+        //egret.Tween.removeTweens(this.tipsMC)
+        //this.tipsMC.scaleX = this.tipsMC.scaleY = 1
+        //this.tipsMC.alpha = 1;
+        //this.tipsMC['cstate'] = 0
 
         this.remove();
         this.renewCard();
-        this.costMC.mask = new egret.Rectangle(0,32-0,27,0);
+        //this.costMC.mask = new egret.Rectangle(0,32-0,27,0);
         this.costText.text = 'x' + PKConfig.mpInit
         this.timeText.text = '' + DateUtil.getStringBySecond(0).substr(-5)
 
-        for(var i=1;i<=4;i++)
+        for(var i=1;i<=2;i++)
         {
             var mc = this['info' + i];
             mc.visible = false;
@@ -489,24 +494,25 @@ class PKCtrlCon extends game.BaseContainer {
         var myPlayer = PKData.getInstance().myPlayer
         this.remove();
 
-        for(var s in myPlayer.posCard)
+        var list =  myPlayer.posList[PKData.getInstance().round]
+        for(var s in list)
         {
-            var data = myPlayer.posCard[s];
+            var data = list[s];
             if(!data)
                 continue;
             var item = PKPosItem.createItem()
             this.placeGroup.addChild(item);
             item.data = data;
             this.placeArr.push(item);
-            if(this.tipsMC['cstate'] == 0)
-            {
-                this.hideTips = true;
-                this.tipsMC['cstate'] = 1
-                this.tipsMC.scaleX = this.tipsMC.scaleY = 0.5;
-                this.tipsMC.x = 534;
-                this.tipsMC.y = 420;
-                //this.tipsMC.visible = false;
-            }
+            //if(this.tipsMC['cstate'] == 0)
+            //{
+            //    this.hideTips = true;
+            //    this.tipsMC['cstate'] = 1
+            //    this.tipsMC.scaleX = this.tipsMC.scaleY = 0.5;
+            //    this.tipsMC.x = 534;
+            //    this.tipsMC.y = 420;
+            //    //this.tipsMC.visible = false;
+            //}
         }
 
         this.needRenewCard = true;
@@ -547,7 +553,7 @@ class PKCtrlCon extends game.BaseContainer {
 
     //游戏开始
     public initInfo(){
-        for(var i=1;i<=4;i++)
+        for(var i=1;i<=2;i++)
         {
             var player = this.getInfoPlayer(i);
             var mc = this['info' + i];
@@ -587,25 +593,31 @@ class PKCtrlCon extends game.BaseContainer {
         //this.barMC.width = 640 * ((PD.myPlayer.getMP() + PD.myPlayer.nextMpRate()) / PKConfig.maxMP);
         //this.rateText.text = PD.myPlayer.getMP() + '/' + PKConfig.maxMP
 
-        var height = 32*(mpRate)
-        this.costMC.mask = new egret.Rectangle(0,32-height,27,height);
+        //var height = 32*(mpRate)
+        //this.costMC.mask = new egret.Rectangle(0,32-height,27,height);
 
         this.costText.text = 'x' + PD.myPlayer.getMP()
-        this.timeText.text = '' + DateUtil.getStringBySecond(PD.actionTime/1000).substr(-5)
+
+
+        this.timeText.text = '' + DateUtil.getStringBySecond(PD.nextRoundCD()/1000).substr(-5)
     }
 
 
 
     private renewInfo(){
-        if(this.needRenewInfo)
-        {
-            this.needRenewInfo = false;
-            for(var i=1;i<=4;i++)
-            {
-                var mc = this['info' + i];
-                mc.dataChanged();
-            }
-        }
+        var PD = PKData.getInstance();
+        var forceObj = PD.getForceData();
+        this.info1.data = forceObj[PD.myPlayer.teamData.id]
+        this.info2.data = forceObj[PD.otherPlayer.teamData.id]
+        //if(this.needRenewInfo)
+        //{
+        //    this.needRenewInfo = false;
+        //    for(var i=1;i<=2;i++)
+        //    {
+        //        var mc = this['info' + i];
+        //        mc.dataChanged();
+        //    }
+        //}
     }
 
     public setChooseCard(card){

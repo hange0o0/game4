@@ -5,6 +5,12 @@ class PKingUI extends game.BaseUI {
         return this.instance;
     }
 
+    public topHeight = 90;
+    public bottomHeight = 150;
+    public bottomMin = 300;
+    public bottomMax = 400;
+    public topMax = 512;
+
     private scroller: eui.Scroller;
     private con: eui.Group;
     private hurt1: eui.Image;
@@ -36,6 +42,7 @@ class PKingUI extends game.BaseUI {
     public tw:egret.Tween;
 
 
+    public countDownNum;
     public quickShow;
     public displayY
     public displayCon
@@ -158,7 +165,7 @@ class PKingUI extends game.BaseUI {
         PKBulletManager.getInstance().freeAll()
         PKVideoCon.getInstance().remove();
         this.pkCtrlCon.remove();
-        this.pkTop.remove();
+        //this.pkTop.remove();
 
         egret.Tween.removeTweens(this.pkTop)
         egret.Tween.removeTweens(this.pkCtrlCon)
@@ -169,7 +176,7 @@ class PKingUI extends game.BaseUI {
     //根据数据重建显示
     public resetView(){
         this.pkCtrlCon.onMyPlayerChange();
-        this.pkTop.onMyPlayerChange()
+        //this.pkTop.onMyPlayerChange()
         PKVideoCon.getInstance().resetView();
     }
 
@@ -199,7 +206,7 @@ class PKingUI extends game.BaseUI {
         SoundManager.getInstance().playSound(SoundConfig.bg_pk);
         this.scrollTime = 0;
         PKVideoCon.getInstance().init();
-        this.pkCtrlCon.init();
+        this.pkCtrlCon.init(500);
         this.pkTop.init('PK对战');
         this.smallMap.visible = false;
 
@@ -207,10 +214,30 @@ class PKingUI extends game.BaseUI {
         PKVideoCon.getInstance().x = 0;
         PKVideoCon.getInstance().y = 0;
 
-        var vY = this.displayY = this.pkTop.y + 170;
-        var vH = this.displayCon = GameManager.stage.stageHeight - 480 - vY
+        var vY = this.displayY = this.topHeight
+        var conHeight = (GameManager.stage.stageHeight - this.topHeight - this.bottomHeight)
+        var bottomHeight = conHeight/2;
+        if(bottomHeight < this.bottomMin)
+        {
+            bottomHeight = this.bottomMin;
+        }
+        else if(bottomHeight > this.bottomMax)
+        {
+            bottomHeight = this.bottomMax;
+        }
+        var topHeight = conHeight - bottomHeight
+        if(topHeight > this.topMax)
+        {
+            topHeight = this.topMax;
+            bottomHeight = conHeight - topHeight
+        }
 
 
+
+        var vH = this.displayCon = topHeight;
+        this.pkCtrlCon.height = bottomHeight + this.bottomHeight;
+        this.smallMap.bottom = this.pkCtrlCon.height + 2;
+        this.scroller.bottom = this.pkCtrlCon.height;
 
         var hurtY = (vH - 320)/2 + vY - 30
         this.hurt1.y = this.hurt2.y = hurtY;
@@ -258,14 +285,14 @@ class PKingUI extends game.BaseUI {
         this.nameText1.text = player.nick
         this.forceText1.text = player.force
         this.headMC1.setData(player.head,player.type)
-        MyTool.setTypeImg(this.typeMC1,player.type)
+        //MyTool.setTypeImg(this.typeMC1,player.type)
 
 
         player = PD.getTeamByRota(PKConfig.ROTA_RIGHT).members[0]
         this.nameText2.text = player.nick
         this.forceText2.text = player.force
         this.headMC2.setData(player.head,player.type)
-        MyTool.setTypeImg(this.typeMC2,player.type)
+        //MyTool.setTypeImg(this.typeMC2,player.type)
     }
 
 
@@ -313,13 +340,13 @@ class PKingUI extends game.BaseUI {
     }
 
     public showCountDown(){
-        if(this.quickShow)
-        {
-            this.startGame();
-            this.pkTop.appearMV();
-            this.pkCtrlCon.initInfo();
-            return;
-        }
+        //if(this.quickShow)
+        //{
+        //    this.startGame();
+        //    this.pkTop.appearMV();
+        //    this.pkCtrlCon.initInfo();
+        //    return;
+        //}
         this.vsGroup.visible = true
         this.vsMC.scaleX = this.vsMC.scaleY = 2
         this.vsMC.alpha = 0
@@ -330,6 +357,9 @@ class PKingUI extends game.BaseUI {
         egret.Tween.get(this.playerGroup1).to({x:20},200).to({x:0},200)
         egret.Tween.get(this.playerGroup2).to({right:20},200).to({right:0},200)
         this.pkCtrlCon.showSpeedBtn();
+        this.startGame();
+        this.countDownNum = -1;
+
         var tw = this.tw = egret.Tween.get(this.roundText)
         tw.wait(800).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300).wait(400).call(()=>{this.roundText.text = '2'})
             .to({scaleX:0,scaleY:0}).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300).wait(400).call(()=>{this.roundText.text = '1'})
@@ -346,13 +376,41 @@ class PKingUI extends game.BaseUI {
                 this.pkCtrlCon.initInfo();
 
             })
-        if(GuideManager.getInstance().isGuiding)
-        {
-            tw.wait(300).call(()=>{
-                this.setStop(true);
-                GuideManager.getInstance().showGuide()
-            })
-        }
+        //var tw = this.tw = egret.Tween.get(this.roundText)
+        //tw.wait(800).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300).wait(400).call(()=>{this.roundText.text = '2'})
+        //    .to({scaleX:0,scaleY:0}).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300).wait(400).call(()=>{this.roundText.text = '1'})
+        //    .to({scaleX:0,scaleY:0}).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300).wait(400).call(()=>{
+        //        this.roundText.text = '';
+        //        egret.Tween.get(this.vsMC).to({scaleX:0.6,scaleY:0.6},200).to({scaleX:0,scaleY:0},200)
+        //        egret.Tween.get(this.playerGroup1).to({x:20},200).to({x:-280},200)
+        //        egret.Tween.get(this.playerGroup2).to({right:20},200).to({right:-280},200)
+        //        this.startGame();
+        //        this.tw = null}).wait(500).call(()=>{
+        //        MyTool.removeMC(this.roundText);
+        //        this.vsGroup.visible = false
+        //        this.pkTop.appearMV();
+        //        this.pkCtrlCon.initInfo();
+        //
+        //    })
+        //if(GuideManager.getInstance().isGuiding)
+        //{
+        //    tw.wait(300).call(()=>{
+        //        this.setStop(true);
+        //        GuideManager.getInstance().showGuide()
+        //    })
+        //}
+    }
+
+    private onRound2Begin(){
+        this.roundText.text = '';
+        egret.Tween.get(this.vsMC).to({scaleX:0.6,scaleY:0.6},200).to({scaleX:0,scaleY:0},200)
+        egret.Tween.get(this.playerGroup1).to({x:20},200).to({x:-280},200)
+        egret.Tween.get(this.playerGroup2).to({right:20},200).to({right:-280},200).call(()=>{
+            MyTool.removeMC(this.roundText);
+            this.vsGroup.visible = false
+        })
+        this.pkTop.appearMV();
+        this.pkCtrlCon.initInfo();
     }
 
     public quickBegin(){
@@ -392,12 +450,36 @@ class PKingUI extends game.BaseUI {
         if(!this.counting)
             isOver = PC.onStep()     //跑数据
 
+        var PD = PKData.getInstance()
+        if(PD.round == 1)
+        {
+            var countNum = Math.floor(PKData.getInstance().actionTime/1000)
+            if(countNum != this.countDownNum)
+            {
+                this.countDownNum = countNum;
+                var cd = (PKTool.cdData[1].cd - countNum)
+                if(cd > 0)
+                    this.roundText.text = cd + '';
+                else
+                    this.roundText.text = '';
+                egret.Tween.removeTweens(this.roundText);
+                egret.Tween.get(this.roundText).to({scaleX:0,scaleY:0}).to({scaleX:1.8,scaleY:1.8},300).to({scaleX:1,scaleY:1},300);
+            }
+        }
+        else if(this.countDownNum < 999)
+        {
+            this.countDownNum = 999;
+            this.onRound2Begin()
+        }
+
+
         //表现动画
         PKVideoCon.getInstance().action();
 
         //控制栏动画
         this.pkCtrlCon.onTimer();
         this.smallMap.onTimer();
+        this.pkTop.onTimer();
 
 
         if(isOver)
@@ -418,13 +500,14 @@ class PKingUI extends game.BaseUI {
         this.removeEventListener(egret.Event.ENTER_FRAME,this.onE,this);
         if(PD.isWin()) //DEBUG ||
         {
+            console.log('win')
             PKManager.getInstance().sendResult(()=>{
                 PKWinUI.getInstance().show();
             });
         }
         else
         {
-
+            console.log('fail')
             PKManager.getInstance().sendFail(()=>{
                 PKFailUI.getInstance().show();
             })

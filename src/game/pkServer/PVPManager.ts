@@ -169,9 +169,56 @@ class PVPManager {
         Net.addUser(oo);
         Net.send(GameEvent.pvp.pk_pvp_offline, oo, (data)=> {
             var msg = data.msg;
-            PKManager.getInstance().startPK(PKManager.TYPE_PVP_ONLINE,msg.enemy)
+            if(msg.pkdata)
+                PKManager.getInstance().startPK(PKManager.TYPE_PVP_OFFLINE,msg.pkdata)
             if (fun)
-                fun(msg.enemy);
+                fun(msg.pkdata);
+        },true,1,true);
+    }
+
+    public pkOfflineFail(fun?) {
+        var oo:any = {};
+        oo.list = PKData.getInstance().myPlayer.posHistory.join(',');
+        PKManager.getInstance().addPKKey(oo);
+        Net.send(GameEvent.pvp.pk_pvp_offline_fail, oo, (data)=> {
+            var msg = data.msg;
+            if(msg.fail)
+            {
+                PKManager.getInstance().testFail(msg.fail)
+                PKingUI.getInstance().hide();
+                return;
+            }
+            PKManager.getInstance().pkResult = msg;
+            this.offline['score'] = msg.score
+            this.task = msg.task;
+            EM.dispatchEventWith(GameEvent.client.pvp_change)
+            if (fun)
+                fun();
+        },true,1,true);
+    }
+
+    public pkOfflineWin(fun?) {
+        var oo:any = {};
+        oo.list = PKData.getInstance().myPlayer.posHistory.join(',');
+        PKManager.getInstance().addPKKey(oo)
+        Net.send(GameEvent.pvp.pk_pvp_offline_win, oo, (data)=> {
+            var msg = data.msg;
+            if(msg.fail)
+            {
+                PKManager.getInstance().testFail(msg.fail)
+                PKingUI.getInstance().hide();
+                return;
+            }
+            PKManager.getInstance().pkResult = msg;
+            this.offline['winnum'] =  (this.offline['winnum'] || 0) + 1
+            this.offline['score'] = msg.score
+            this.offline['maxscore'] = Math.max(this.offline['maxscore']||0,msg.score)
+            this.task = msg.task;
+            this.lastEnemyList = null;
+            this.history = null;
+            EM.dispatchEventWith(GameEvent.client.pvp_change)
+            if (fun)
+                fun();
         },true,1,true);
     }
 
@@ -188,6 +235,7 @@ class PVPManager {
                 fun();
         },true,1,true);
     }
+
     public pkOnlineFail(serverKey,fun?) {
         var oo:any = {};
         oo.serverkey = serverKey;

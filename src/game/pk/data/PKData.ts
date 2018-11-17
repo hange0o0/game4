@@ -13,6 +13,7 @@ class PKData extends egret.EventDispatcher{
     public isReplay;
     public replayEndTime;
     public isAuto;
+    public round; //当前的回合
 
     public jumpMV = false;
     public isGameOver = false //游戏结束
@@ -103,6 +104,7 @@ class PKData extends egret.EventDispatcher{
     public init(data){
 
         this.startTime = 0;
+        this.round = 1;
         this.heroStep = 0;
         this.preLoadHeroStep = 0;
         this.isReplay = false;
@@ -173,6 +175,19 @@ class PKData extends egret.EventDispatcher{
         this.team2.reInit();
     }
 
+    public getForceData(){
+        var forceObj = {};
+        for(var s in this.monsterList)
+        {
+            var monsterData:PKMonsterData = this.monsterList[s];
+            var temaID = monsterData.getOwner().teamData.id;
+            if(!forceObj[temaID])
+                forceObj[temaID] = 0;
+            forceObj[temaID] += monsterData.getForce()
+        }
+        return forceObj;
+    }
+
     public random(){
         this.randomTimes ++;
         var seed = this.randomSeed;
@@ -201,6 +216,12 @@ class PKData extends egret.EventDispatcher{
         if(splice)
             arr.splice(index,1);
         return data;
+    }
+
+    //下一轮开始倒计时
+    public nextRoundCD(){
+        var cd = PKTool.cdData[this.round].cd*1000 - this.actionTime;
+        return cd
     }
 
     //开始游戏

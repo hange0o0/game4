@@ -27,6 +27,7 @@ class PKVideoCon extends game.BaseContainer {
     private monsterY = 400;
     private tw1
     private tw2
+    private isHang
 
     public childrenCreated() {
         super.childrenCreated();
@@ -48,8 +49,13 @@ class PKVideoCon extends game.BaseContainer {
 
     }
 
-    public init(){
-        this.bg.source = PKManager.getInstance().getPKBG();
+    public init(isHang?){
+        this.isHang = isHang;
+        this.bg.visible = !this.isHang;
+
+        if(this.bg.visible)
+            this.bg.source = PKManager.getInstance().getPKBG();
+
         this.remove();
         if(PKData.getInstance().myPlayer.teamData.atkRota == PKConfig.ROTA_LEFT)
         {
@@ -59,7 +65,7 @@ class PKVideoCon extends game.BaseContainer {
         else
         {
             this.door1.source = 'door2_png'
-            this.door2.source = 'door1_png'
+            this.door2.source = 'door_png'
         }
     }
 

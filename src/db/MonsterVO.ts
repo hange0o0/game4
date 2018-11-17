@@ -175,13 +175,13 @@ class MonsterVO {
 
     public getSkillValue(index,force=0){
         var sv = this['sv' + index];
-        if(DEBUG && !GuideManager.getInstance().isGuiding)
-        {
-            if(force && this.des.indexOf('$'+index) == -1)
-                throw new Error(this.id + '_$' + index)
-            else if(!force && this.des.indexOf('#'+index) == -1)
-                throw new Error(this.id + '_#' + index)
-        }
+        //if(DEBUG && !GuideManager.getInstance().isGuiding)
+        //{
+        //    if(force && this.des.indexOf('$'+index) == -1)
+        //        throw new Error(this.id + '_$' + index)
+        //    else if(!force && this.des.indexOf('#'+index) == -1)
+        //        throw new Error(this.id + '_#' + index)
+        //}
         if(!force)
             return sv
         return Math.floor(sv * (1+force/100));

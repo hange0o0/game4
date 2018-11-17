@@ -100,6 +100,11 @@ class PKMonsterData {
         //this.def += this.getVO().def;
     }
 
+    public getForce(){
+        var mvo = this.getVO();
+        return Math.round((this.hp/mvo.hp*(1+this.def/100) + this.atk/mvo.atk*0.8 + this.speed/mvo.speed*0.5)*mvo.cost*10);
+    }
+
     //根据属性相克，取攻击比例
     public getAtkRate(defender:PKMonsterData){
         if(_get['debug'])

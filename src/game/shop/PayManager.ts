@@ -6,10 +6,10 @@ class PayManager {
         return this._instance;
     }
     public diamondBase = {
-        '101':{'cost':6,'diamond':60},
-        '102':{'cost':30,'diamond':305},
-        '103':{'cost':100,'diamond':1024},
-        '104':{'cost':680,'diamond':6980},
+        '101':{'cost':6,'diamond':100},
+        '102':{'cost':30,'diamond':520},
+        '103':{'cost':150,'diamond':2650},
+        '104':{'cost':600,'diamond':10650},
         '105':{'cost':1,'diamond':1}
     }
     public diamondList

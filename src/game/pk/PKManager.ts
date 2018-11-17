@@ -179,9 +179,9 @@ class PKManager {
             //case PKManager.TYPE_HANG:
             //    HangManager.getInstance().pkResult(fun);
             //    break;
-            //case PKManager.TYPE_PVP_OFFLINE:
-            //    PVPManager.getInstance().pkOfflineWin(fun);
-            //    break;
+            case PKManager.TYPE_PVP_OFFLINE:
+                PVPManager.getInstance().pkOfflineWin(fun);
+                break;
             case PKManager.TYPE_PVP_ONLINE:
                 PVPCtrl.getInstance().sendPKResult(true,fun)
                 //PVPManager.getInstance().pkOnlineWin(fun);
@@ -317,9 +317,9 @@ class PKManager {
             //    this.saveVideo('answer_video');
             //    fun && fun();
             //    break;
-            //case PKManager.TYPE_PVP_OFFLINE:
-            //    PVPManager.getInstance().pkOfflineFail(fun);
-            //    break
+            case PKManager.TYPE_PVP_OFFLINE:
+                PVPManager.getInstance().pkOfflineFail(fun);
+                break
             case PKManager.TYPE_PVP_ONLINE:
                 PVPCtrl.getInstance().sendPKResult(false,fun)
                 //PVPManager.getInstance().pkOnlineFail(fun);
@@ -406,6 +406,7 @@ class PKManager {
         this.pkResult = null;
         this.isOnline = sp.isOnline;
 
+        HangUI.getInstance().clean();  //停止
         var PD = PKData.getInstance();
         if(this.showTopNum)
             data.showTopNum = this.showTopNum;
@@ -675,11 +676,10 @@ class PKManager {
     //    });
     //}
 
-    public sendPosToServer(posCard:PKPosCardData,fun?)
+    public sendPosToServer(posCard,fun?)
     {
         var oo = {
             actiontime:posCard.actionTime,
-            id:posCard.id,
             mid:posCard.mid,
             owner:posCard.owner
         }

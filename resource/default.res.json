@@ -25,11 +25,11 @@
 			"name":"guide"
 		},
 		{
-			"keys":"pk_bg1_jpg",
+			"keys":"pk_bg1_jpg,floor1_png,floor2_png,floor3_png,floor4_png",
 			"name":"temp"
 		},
 		{
-			"keys":"pvp_icon_1_png,pvp_icon_2_png,pvp_icon_3_png,pvp_icon_4_png,pvp_icon_5_png,pvp_icon_6_png,pvp_icon_7_png,pvp_icon_8_png,pvp_icon_9_png,pvp_icon_10_png,pvp_icon_11_png,pvp_icon_12_png,pvp_icon_13_png,pvp_icon_14_png,pvp_icon_15_png,pvp_icon_16_png,pvp_icon_17_png,pvp_icon_18_png,pvp_icon_19_png,pvp_icon_20_png,pvp_task_2_png,pvp_task_1_png,active_0_png,active_1_png,active_2_png,active_3_png,active_4_png,active_5_png,active_6_png",
+			"keys":"pvp_icon_1_png,pvp_icon_2_png,pvp_icon_3_png,pvp_icon_4_png,pvp_icon_5_png,pvp_icon_6_png,pvp_icon_7_png,pvp_icon_8_png,pvp_icon_9_png,pvp_icon_10_png,pvp_icon_11_png,pvp_icon_12_png,pvp_icon_13_png,pvp_icon_14_png,pvp_icon_15_png,pvp_icon_16_png,pvp_icon_17_png,pvp_icon_18_png,pvp_icon_19_png,pvp_icon_20_png,pvp_task_2_png,pvp_task_1_png,active_0_png,active_1_png,active_2_png,active_3_png,active_4_png,active_5_png,active_6_png,pvp_icon_thumb_1_png,pvp_icon_thumb_2_png,pvp_icon_thumb_3_png,pvp_icon_thumb_4_png,pvp_icon_thumb_5_png,pvp_icon_thumb_6_png,pvp_icon_thumb_7_png,pvp_icon_thumb_8_png,pvp_icon_thumb_9_png,pvp_icon_thumb_10_png,pvp_icon_thumb_11_png,pvp_icon_thumb_12_png,pvp_icon_thumb_13_png,pvp_icon_thumb_14_png,pvp_icon_thumb_15_png,pvp_icon_thumb_16_png,pvp_icon_thumb_17_png,pvp_icon_thumb_18_png,pvp_icon_thumb_19_png,pvp_icon_thumb_20_png",
 			"name":"pvp"
 		},
 		{
@@ -1366,6 +1366,126 @@
 			"name":"pk_e_20_png",
 			"type":"image",
 			"url":"game_assets/face/pk_e_20.png"
+		},
+		{
+			"name":"floor1_png",
+			"type":"image",
+			"url":"game_assets/temp/floor1.png"
+		},
+		{
+			"name":"floor2_png",
+			"type":"image",
+			"url":"game_assets/temp/floor2.png"
+		},
+		{
+			"name":"floor3_png",
+			"type":"image",
+			"url":"game_assets/temp/floor3.png"
+		},
+		{
+			"name":"floor4_png",
+			"type":"image",
+			"url":"game_assets/temp/floor4.png"
+		},
+		{
+			"name":"pvp_icon_thumb_1_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_1.png"
+		},
+		{
+			"name":"pvp_icon_thumb_2_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_2.png"
+		},
+		{
+			"name":"pvp_icon_thumb_3_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_3.png"
+		},
+		{
+			"name":"pvp_icon_thumb_4_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_4.png"
+		},
+		{
+			"name":"pvp_icon_thumb_5_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_5.png"
+		},
+		{
+			"name":"pvp_icon_thumb_6_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_6.png"
+		},
+		{
+			"name":"pvp_icon_thumb_7_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_7.png"
+		},
+		{
+			"name":"pvp_icon_thumb_8_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_8.png"
+		},
+		{
+			"name":"pvp_icon_thumb_9_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_9.png"
+		},
+		{
+			"name":"pvp_icon_thumb_10_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_10.png"
+		},
+		{
+			"name":"pvp_icon_thumb_11_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_11.png"
+		},
+		{
+			"name":"pvp_icon_thumb_12_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_12.png"
+		},
+		{
+			"name":"pvp_icon_thumb_13_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_13.png"
+		},
+		{
+			"name":"pvp_icon_thumb_14_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_14.png"
+		},
+		{
+			"name":"pvp_icon_thumb_15_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_15.png"
+		},
+		{
+			"name":"pvp_icon_thumb_16_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_16.png"
+		},
+		{
+			"name":"pvp_icon_thumb_17_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_17.png"
+		},
+		{
+			"name":"pvp_icon_thumb_18_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_18.png"
+		},
+		{
+			"name":"pvp_icon_thumb_19_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_19.png"
+		},
+		{
+			"name":"pvp_icon_thumb_20_png",
+			"type":"image",
+			"url":"game_assets/pvp/pvp_icon_thumb_20.png"
 		}
 	]
 }
